@@ -27,16 +27,16 @@ document.addEventListener('DOMContentLoaded', () => {
         db.collection('users').doc(user.uid).get()
             .then(docSnap => {
                 if (docSnap.exists) {
-                    document.getElementById('user-balance').textContent = `${docSnap.data().balance.toFixed(2)} DZD`;
+                    const userData = docSnap.data();
+                    document.getElementById('user-balance').textContent = `${userData.balance.toFixed(2)} DZD`;
 
-                    const lastPurchaseDate = docSnap.data().lastPurchaseDate?.toDate(); // تاريخ آخر شراء
-                    if (lastPurchaseDate) {
+                    const subscriptionEndDate = userData.subscriptionEnd?.toDate(); // تاريخ انتهاء الاشتراك
+
+                    if (subscriptionEndDate) {
                         const currentDate = new Date();
-                        const oneMonthLater = new Date(lastPurchaseDate);
-                        oneMonthLater.setMonth(oneMonthLater.getMonth() + 1);
-
-                        if (currentDate < oneMonthLater) {
-                            document.getElementById('status-message').textContent = 'You can only make a purchase once every month. Please wait until ' + oneMonthLater.toDateString() + ' to make another purchase.';
+                        
+                        if (currentDate < subscriptionEndDate) {
+                            document.getElementById('status-message').textContent = `You are already subscribed until ${subscriptionEndDate.toDateString()}. Please wait until ${subscriptionEndDate.toDateString()} to make another purchase.`;
                             disablePurchaseButtons();
                         }
                     }
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                             proceedWithPurchase(finalPrice, productName, discountCode, usedBy);
                         } else {
-                            document.getElementById('status-message').textContent = 'Invalid Code Promo.';
+                            document.getElementById('status-message').textContent = 'Invalid discount code.';
                         }
                     })
                     .catch(error => {
@@ -141,5 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
 
 
