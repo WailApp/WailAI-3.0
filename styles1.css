@@ -1,0 +1,153 @@
+/* Font and reset styles */
+@font-face {
+  font-family: 'Heavy';
+  src: url('./fonts/heavy.ttf') format('truetype'); /* Use relative path */
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Heavy', sans-serif; /* Add sans-serif as a fallback */
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #F5F5F5; /* Lighter background color similar to Google */
+  color: #202124; /* Darker text color for readability */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px; /* Add padding for small screens */
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px; /* Limit the width of the container */
+  margin: auto;
+}
+
+.card {
+  background: #FFFFFF;
+  border-radius: 30px;
+  padding: 20px;
+  width: 100%;
+}
+
+h1 {
+  color: #202124; /* Darker color for headings */
+  margin-bottom: 20px;
+  text-align: left; /* Left align text */
+  font-size: 24px; /* Slightly larger font size */
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #202124;
+}
+input[type="email"],
+input[type="password"] {
+  width: 100%; /* Full width for better layout */
+  padding: 12px;
+  border: 1px solid #DADCE0; /* Subtle border similar to Google */
+  border-radius: 15px; /* Slightly rounded corners */
+  background-color: #FFFFFF; /* White background for inputs */
+  color: #202124; /* Darker text color */
+  font-size: 16px; /* Adjust font size */
+  margin-top: 10px;
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: left;
+  padding: 12px 16px;
+  font-size: 14px; /* Adjust font size */
+  font-weight: 500;
+  line-height: 1.75;
+  border-radius: 10px; /* Slightly rounded corners */
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  width: 100%; /* Full width for better layout */
+  margin: 5px 0;
+  background-color: #0068ff; /* Google blue color */
+  color: white;
+}
+
+button:hover {
+  background-color: #1558D6; /* Slightly darker blue on hover */
+}
+
+button:focus {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow for focus effect */
+}
+
+.error-message {
+  color: #D93025; /* Error color similar to Google */
+  font-size: 0.9em;
+  margin-top: 10px;
+}
+
+.links {
+  margin-top: 20px;
+  text-align: center; /* Center align links */
+}
+
+.links a {
+  color: #1A73E8; /* Google blue color */
+  text-decoration: none;
+  display: block;
+  margin: 5px 0;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+  .footer {
+    display: none;
+}
+  .card{
+	    border-radius: 30px;
+	    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.0); /* Subtle shadow effect */
+        padding: 20px;
+        width: 100%;
+		margin: 0px;
+  }
+
+  button.primary {
+    width: 100%; /* Full width for small screens */
+    margin: 5px 0;
+  }
+}
+        img {
+            margin-bottom: 10px;
+			border-radius: 360px;
+            width: 50px;
+        }
+
+  ion-icon {
+  margin: 5px;
+  font-size: 20px;
+}

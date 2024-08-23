@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#0D86FF">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#0D86FF">
+    <meta name="msapplication-TileColor" content="#0D86FF">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="msapplication-TileImage" content="icon3.0.png">
+    <link rel="manifest" crossorigin="use-credentials" href="manifest.json">
+    <link rel="icon" type="image/png" href="icon3.0.png">
+    <link rel="apple-touch-icon" href="icon3.0.png" sizes="512x512">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Sign Up - WailAI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Complete Sign Up</h1>
+        <p>Your email has been verified. Please complete the sign-up process.</p>
+        <form id="complete-sign-up-form">
+            <input type="text" id="full-name" placeholder="Full Name" required>
+            <input type="text" id="profile-picture-url" placeholder="Profile Picture URL">
+            <button type="submit">Complete Sign Up</button>
+        </form>
+        <div id="message"></div>
+        <div id="error-message" class="error-message"></div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-auth-compat.js"></script>
+    <script src="complete-sign-up.js"></script>
+</body>
+</html>

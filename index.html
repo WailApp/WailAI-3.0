@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>WailAI 3.0</title>
+  
+  <!-- Linking Google Fonts For Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism.min.css" rel="stylesheet" />
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="style.css">
+  <meta name="msapplication-TileImage" content="icon.png">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="apple-touch-icon" href="icon.png" sizes="512x512">
+  <meta name="author" content="WailTech">
+       <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-storage-compat.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
+  <script src="language.js" defer></script>
+  <script src="data.js" defer></script>
+  <script src="auth-check.js" defer></script>
+  <script type="importmap"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo-container2">
+      <ion-icon name="sparkles"></ion-icon>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <header class="header2">
+      <div class="logo-container">
+        <h1 class="title">WailAI 3.0</h1>
+      </div>
+      <p class="subtitle">How can I help you today?</p>
+      <!-- Suggestion list -->
+      <ul class="suggestion-list">
+        <li class="suggestion">
+          <h4 class="text">Write me a complete story about the game GTA.</h4>
+          <span class="icon material-symbols-rounded">draw</span>
+          <div class="progress-bar"></div>  
+        </li>
+        <li class="suggestion">
+          <h4 class="text">Give me ideas to become famous on TikTok.</h4>
+          <span class="icon material-symbols-rounded">lightbulb</span>
+          <div class="progress-bar"></div>  
+        </li>
+        <li class="suggestion">
+          <h4 class="text">Help me choose a programming language to learn.</h4>
+          <span class="icon material-symbols-rounded">explore</span>
+          <div class="progress-bar"></div>  
+        </li>
+        <li class="suggestion">
+          <h4 class="text">Write me the HTML code for a school website.</h4>
+          <span class="icon material-symbols-rounded">code</span>
+          <div class="progress-bar"></div>  
+        </li>
+      </ul>
+    </header>
+<div class="chat-list"></div>
+    <!-- Typing Area -->
+    <div class="typing-area">
+      <form action="#" class="typing-form">
+        <div class="input-wrapper">
+          <input type="text" placeholder="Message WailAI" class="typing-input" required />
+          <button id="send-message-button" class="icon material-symbols-rounded">arrow_upward</button>
+        </div>
+        <div class="action-buttons">
+          <span id="delete-chat-button" class="icon material-symbols-rounded">replay</span>
+        </div>
+      </form>
+      <p class="disclaimer-text">
+        WailAI can make mistakes, so double-check that results are accurate before using them and that you have the right to use the content. Do not share personal information.
+      </p>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

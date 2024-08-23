@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#0D86FF">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#0D86FF">
+    <meta name="msapplication-TileColor" content="#0D86FF">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="msapplication-TileImage" content="icon3.0.png">
+    <link rel="manifest" crossorigin="use-credentials" href="manifest.json">
+    <link rel="icon" type="image/png" href="icon3.0.png">
+    <link rel="apple-touch-icon" href="icon3.0.png" sizes="512x512">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification - WailAI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+		<img src="icon3.0.png" alt="WailAI Logo" />
+            <h1>Email Verification</h1>
+		<form id="email-verification-form">
+            <p>Please check your email to verify your WailAI account.</p>
+            <button id="check-email-verification">Check Email Verification Status</button>
+            <button id="delete-account" style="background-color: #e74c3c; color: white;">Delete Account</button>
+            <button id="proceed" style="display: none; background-color: #4CAF50; color: white;">Proceed</button>
+            <div id="verification-status"></div>
+			</form>
+        </div>
+		</div>
+        <div class="footer">
+            <p>&copy; 2024-2019 WailAI from WailTech. All rights reserved.</p>
+        </div>
+
+        <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-auth-compat.js"></script>
+        <script src="email-verification.js"></script>
+    </div>
+</body>
+</html>
