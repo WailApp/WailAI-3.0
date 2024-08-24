@@ -37,7 +37,7 @@
                     })
                     .then(() => {
                         // Password saved successfully, redirect to verification page
-                        window.location.href = 'welcome.html';
+                        window.location.href = 'email-verification.html';
                     })
                     .catch(error => {
                         console.error("Error writing document: ", error);

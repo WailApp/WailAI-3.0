@@ -3,6 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebas
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 
+
 // Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyAzg4PmFoXnS95TXk8FlG9C4bSxhfer86E",
@@ -32,7 +33,6 @@ onAuthStateChanged(auth, async (user) => {
                 const userData = userDoc.data();
                 const subscription = userData.subscription;
                 const subscriptionEnd = userData.subscriptionEnd ? userData.subscriptionEnd.toDate() : null;
-
                 // Check if the subscription is valid
                 if (subscription && subscriptionEnd && subscriptionEnd > new Date()) {
                     // User has a valid subscription

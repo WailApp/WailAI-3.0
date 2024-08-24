@@ -41,8 +41,7 @@
                 <div id="login-error" class="error-message"></div>
             </form>
             <div class="links">
-                <a href="login.html">Already have an account? Log in</a>
-                <a href="reset-password.html">Forgot your password?</a>
+                <a href="login.html">Back</a>
             </div>
         </div>
     </div>
@@ -91,7 +90,7 @@
                 })
                 .then(() => {
                     // Password saved successfully, redirect to verification page
-                    window.location.href = 'welcome.html';
+                    window.location.href = 'index.html';
                 })
                 .catch(error => {
                     // Handle errors

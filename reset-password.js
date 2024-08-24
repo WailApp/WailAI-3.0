@@ -1,7 +1,3 @@
-// استيراد الوحدات المطلوبة من Firebase
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
-import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
-
 // إعدادات Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyAzg4PmFoXnS95TXk8FlG9C4bSxhfer86E",
@@ -13,24 +9,10 @@ const firebaseConfig = {
     measurementId: "G-VRR62LMMMK"
 };
 
-// تهيئة Firebase
-const app = initializeApp(firebaseConfig);
+// تهيئة Firebase فقط إذا لم يكن مهيأ مسبقًا
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
 
 // الحصول على مرجع لخدمة المصادقة
-const auth = getAuth(app);
-
-// التعامل مع إعادة تعيين كلمة المرور
-document.getElementById('reset-password-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const email = document.getElementById('reset-email').value;
-
-    sendPasswordResetEmail(auth, email)
-        .then(() => {
-            // رسالة إعادة تعيين كلمة المرور أُرسلت بنجاح، الانتقال إلى صفحة أخرى
-            document.getElementById('message').innerText = 'Done'; // استبدل بـ URL الصفحة التي تريد الانتقال إليها
-        })
-        .catch(error => {
-            // معالجة الأخطاء وعرض رسالة الخطأ
-            document.getElementById('message').innerText = 'خطأ: ' + error.message;
-        });
-});
+const auth = firebase.auth();

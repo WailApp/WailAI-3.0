@@ -100,12 +100,13 @@ h1 {
   text-align: center;
 }
 input[type="email"],
+input[type="text"],
 input[type="password"] {
   width: 100%; /* Full width for better layout */
   padding: 12px;
-  border: 1px solid #DADCE0; /* Subtle border similar to Google */
+  border: 1px solid #F5F5F5; /* Subtle border similar to Google */
   border-radius: 15px; /* Slightly rounded corners */
-  background-color: #FFFFFF; /* White background for inputs */
+  background-color: #F5F5F5; /* White background for inputs */
   color: #202124; /* Darker text color */
   font-size: 16px; /* Adjust font size */
   margin-top: 10px;
@@ -187,6 +188,10 @@ button:focus {
 		justify-content: center;
         text-align: center;
   }
+  
+  body {
+  background-color: White; /* Lighter background color similar to Google */
+}
 
   button.primary {
     width: 100%; /* Full width for small screens */

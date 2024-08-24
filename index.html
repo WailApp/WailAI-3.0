@@ -71,6 +71,7 @@
     <div class="typing-area">
       <form action="#" class="typing-form">
         <div class="input-wrapper">
+		
           <input type="text" placeholder="Message WailAI" class="typing-input" required />
           <button id="send-message-button" class="icon material-symbols-rounded">arrow_upward</button>
         </div>
@@ -84,5 +85,17 @@
     </div>
   </main>
   <script src="script.js"></script>
+  <script>
+  // إضافة معالج حدث للنقر على الـ header
+document.querySelector('.header').addEventListener('click', () => {
+  // تحديد الرابط الذي تريد الانتقال إليه
+  const targetUrl = 'settings.html'; // استبدل بـ URL أو مسار القسم المطلوب
+  
+  // تنفيذ الانتقال
+  window.location.href = targetUrl; // إذا كان الرابط إلى صفحة جديدة
+  // window.location.hash = '#section-id'; // إذا كان الرابط إلى قسم معين على نفس الصفحة
+});
+
+  </script>
 </body>
 </html>

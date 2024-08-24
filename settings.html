@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Settings - WailAI</title>
-    <link rel="stylesheet" href="styles1.css">
+    <link rel="stylesheet" href="styles.css">
 	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app-compat.js"></script>
@@ -12,30 +13,37 @@
     <script src="settings.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-		<img src="user.png" alt="WailAI Logo" />
-            <h1>Account Settings</h1>
-            <div id="account-info">
-                <p><strong>ID:</strong> <span id="user-id"></span></p>
-                <p><strong>Email:</strong> <span id="user-email"></span></p>
-                <p><strong>Password:</strong> <span id="user-password">********</span></p>
-            </div>
-            <button id="change-password-btn" style="background-color: #f7f9f9; color: black;">
-                <span><ion-icon name="lock-closed" class="material-icons"></ion-icon></span> تغير كلمة مرور
-            </button>
-			     <button href= "#" id="da-btn" style="background-color: #f7f9f9; color: black;">
-                <span><ion-icon name="card" class="material-icons"></ion-icon></span> رصيدك
-            </button>
-            <button id="logout-btn" style="background-color: #f7f9f9 ; color: black;">
-                <span><ion-icon name="exit" class="material-icons"></ion-icon></span> تسجيل خروج
-            </button>
-            <button id="delete-account-btn" style="background-color: #e74c3c; color: white;">
-                <span><ion-icon name="trash"class="material-icons" ></ion-icon></span> حذف حساب
-            </button>
-            <div id="status-message" class="error-message"></div>
-        </div>
+<body>
+  <header class="header">
+    <div class="logo-container2">
+      <ion-icon name="sparkles"></ion-icon>
     </div>
+  </header>
+<div class="container">
+    <div class="card">
+        <span class="icon material-symbols-rounded">settings</span>
+        <h1>Settings</h1>
+        <div id="account-info">
+            <p><strong>ID:</strong> <span id="user-id"></span></p>
+            <p><strong>Email:</strong> <span id="user-email"></span></p>
+            <p><strong>Password:</strong> <span id="user-password">********</span></p>
+        </div>
+        <button id="change-password-btn" style="background-color: #f7f9f9; color: black;">
+            Change Password
+        </button>
+        <button href="#" id="da-btn" style="background-color: #f7f9f9; color: black;">
+            Your Balance
+        </button>
+        <button id="logout-btn" style="background-color: #f7f9f9 ; color: black;">
+         Logout
+        </button>
+        <button id="delete-account-btn" style="background-color: #e74c3c; color: white;">
+        Delete Account
+        </button>
+        <div id="status-message" class="error-message"></div>
+    </div>
+</div>
+
 		            <div class="footer">
                 <p>&copy; 2024-2019 WailID from WailTech. All rights reserved.</p>
             </div>

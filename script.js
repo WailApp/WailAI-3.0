@@ -116,16 +116,14 @@ const showLoadingAnimation = () => {
 
 // وظيفة التحقق من الاشتراك وحدود الرسائل قبل إرسال الرسالة
 const checkSubscriptionAndHandleOutgoingChat = async () => {
-  const messageCountKey = `messageCount_${auth.currentUser.uid}`;
-  let messageCount = parseInt(localStorage.getItem(messageCountKey)) || 0;
-
-  const userDocRef = db.collection('users').doc(auth.currentUser.uid);
+  const userDocRef = firestore.collection('users').doc(auth.currentUser.uid);
   try {
     const doc = await userDocRef.get();
     if (doc.exists) {
       const userData = doc.data();
       const subscription = userData?.subscription;
       const subscriptionEnd = userData?.subscriptionEnd ? userData.subscriptionEnd.toDate() : null;
+      let messageCount = userData?.messageCount || 0;
 
       const now = new Date();
 
@@ -143,7 +141,7 @@ const checkSubscriptionAndHandleOutgoingChat = async () => {
         } else {
           // زيادة العداد وحفظه ثم إرسال الرسالة
           messageCount++;
-          localStorage.setItem(messageCountKey, messageCount);
+          await userDocRef.update({ messageCount }); // تحديث عدد الرسائل في Firebase
           handleOutgoingChat();
         }
       }
@@ -156,6 +154,7 @@ const checkSubscriptionAndHandleOutgoingChat = async () => {
     // معالجة الخطأ (يمكنك تنفيذ إجراءات إضافية هنا)
   }
 };
+
 
 // عرض رسالة الخطأ في واجهة المستخدم مع زر إغلاق
 const displayErrorMessage = (message) => {
@@ -263,12 +262,9 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-
-
-// التعامل مع الدردشة الصادرة
 const handleOutgoingChat = () => {
   userMessage = typingForm.querySelector(".typing-input").value.trim() || userMessage;
-  if (!userMessage || isResponseGenerating) return;
+  if (!userMessage || isResponseGenerating || sendMessageButton.disabled) return;
 
   isResponseGenerating = true;
 
@@ -286,6 +282,7 @@ const handleOutgoingChat = () => {
   chatContainer.scrollTo(0, chatContainer.scrollHeight);
   setTimeout(showLoadingAnimation, 500);
 };
+
 
 // حذف جميع الدردشات من localStorage عند النقر على الزر
 const deleteChats = () => {

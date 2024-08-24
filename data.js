@@ -76,6 +76,7 @@ auth.onAuthStateChanged(user => {
                         const userData = doc.data();
                         const subscription = userData?.subscription;
                         const subscriptionEnd = userData?.subscriptionEnd ? userData.subscriptionEnd.toDate() : null;
+                        let remainingMessages = userData?.remainingMessages || 20;
 
                         console.log('Existing user data:', userData); // Display existing user data
                         console.log('Subscription end date:', subscriptionEnd); // Display subscription end date
@@ -95,7 +96,8 @@ auth.onAuthStateChanged(user => {
                             lastLogin: timestamp,
                             deviceInfo: deviceInfo,
                             locationInfo: locationInfo,
-                            email: email
+                            email: email,
+                            remainingMessages: remainingMessages // Add remainingMessages field
                         }, { merge: true })
                         .then(() => {
                             console.log('User data updated successfully');
@@ -115,3 +117,45 @@ auth.onAuthStateChanged(user => {
         console.log('No user is signed in.');
     }
 });
+
+// Function to send a message
+function sendMessage(userId, message) {
+    firestore.collection('users').doc(userId).get()
+        .then(doc => {
+            if (doc.exists) {
+                const userData = doc.data();
+                const remainingMessages = userData?.remainingMessages || 20;
+
+                if (remainingMessages > 0) {
+                    // Update message collection or do something with the message
+                    firestore.collection('messages').add({
+                        userId: userId,
+                        message: message,
+                        timestamp: new Date().toISOString()
+                    })
+                    .then(() => {
+                        // Decrease the remaining messages count
+                        firestore.collection('users').doc(userId).update({
+                            remainingMessages: remainingMessages - 1
+                        })
+                        .then(() => {
+                            console.log('Message sent and remaining messages updated.');
+                        })
+                        .catch(error => {
+                            console.error('Error updating remaining messages:', error);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error sending message:', error);
+                    });
+                } else {
+                    console.log('No remaining messages. Please subscribe to continue.');
+                }
+            } else {
+                console.log('No such document!');
+            }
+        })
+        .catch(error => {
+            console.error('Error getting document:', error);
+        });
+}
