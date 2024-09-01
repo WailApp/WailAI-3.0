@@ -34,7 +34,25 @@
       <img class="avatar" src="icon.svg" alt="WailAI">
     </div>
   </header>
+<script>
 
+if (
+    // فحص لأي متصفح قديم غير مدعوم
+    navigator.userAgent.indexOf('MSIE') !== -1 || // Internet Explorer
+    navigator.userAgent.indexOf('Trident/') > 0 || // Internet Explorer 11 والإصدارات الأحدث
+    navigator.userAgent.indexOf('Opera') !== -1 || // Opera 12 والإصدارات الأقدم
+    navigator.userAgent.indexOf('Edge') !== -1 // Microsoft Edge قديمة
+	    (navigator.userAgent.indexOf('Chrome') !== -1 && parseInt(navigator.userAgent.match(/Chrome\/(\d+)/)[1], 10) < 50) || // Google Chrome الإصدارات القديمة (أقل من 50)
+    (navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Version/') !== -1 && parseInt(navigator.userAgent.match(/Version\/(\d+)/)[1], 10) < 10) // Safari الإصدارات القديمة (أقل من 10)
+) {
+    console.log('المتصفح غير مدعوم للخدمات الجديدة والإشعارات.');
+    window.location.href = 'unsupported-browser.html';
+} else {
+    console.log('المتصفح مدعوم للخدمات الجديدة والإشعارات.');
+}
+
+
+</script>
   <!-- Main Content -->
   <main class="main-content">
     <header class="header2">
