@@ -5,6 +5,7 @@ const suggestions = document.querySelectorAll(".suggestion");
 const deleteChatButton = document.querySelector("#delete-chat-button");
 const themeToggleButton = document.querySelector("#theme-toggle-button");
 const sendMessageButton = document.querySelector("#send-message-button");
+const contextMenu = document.getElementById("context-menu");
 
 // المتغيرات الحالة
 let userMessage = null;
@@ -97,7 +98,7 @@ const generateAPIResponse = async (incomingMessageDiv) => {
 // عرض الرسوم المتحركة أثناء الانتظار لرد API
 const showLoadingAnimation = () => {
   const html = `<div class="message-content">
-                  <img class="avatar" src="images/chatbot3.0.png" alt="WailAI">
+                  <img class="avatar" src="icon.svg" alt="WailAI">
                   <p class="text"></p>
                   <div class="loading-indicator">
                     <div class="loading-bar"></div>
@@ -155,7 +156,6 @@ const checkSubscriptionAndHandleOutgoingChat = async () => {
   }
 };
 
-
 // عرض رسالة الخطأ في واجهة المستخدم مع زر إغلاق
 const displayErrorMessage = (message) => {
   const errorMessageDiv = document.createElement("div");
@@ -163,6 +163,7 @@ const displayErrorMessage = (message) => {
 
   // إضافة النص والزر
   errorMessageDiv.innerHTML = `
+  <img class="avatar" src="icon.svg" alt="WailAI">
     <span class="error-text">${message}</span>
     <button class="error-button" onclick="window.location.href='update.html'">Get Pro</button>
     <button class="error-close-button" onclick="this.parentElement.remove()">×</button>
@@ -217,7 +218,7 @@ style.textContent = `
   transition: background-color 0.3s, box-shadow 0.3s;
   width: auto; /* Full width for better layout */
   margin-left: 15px;
-  background-color: #387cff; /* Google blue color */
+  background-color: #0021ff; /* Google blue color */
   color: white;
   }
 
@@ -283,7 +284,6 @@ const handleOutgoingChat = () => {
   setTimeout(showLoadingAnimation, 500);
 };
 
-
 // حذف جميع الدردشات من localStorage عند النقر على الزر
 const deleteChats = () => {
   if (confirm("Are you sure you want to delete all the chats?")) {
@@ -342,3 +342,51 @@ typingForm.addEventListener("keypress", (e) => {
     displayErrorMessage("You have exceeded the maximum number of allowed messages. Please upgrade your plan.");
   }
 });
+
+// إعداد قائمة السياق
+const setupContextMenu = () => {
+  document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+    
+    if (e.target.closest(".message")) {
+      const messageElement = e.target.closest(".message");
+      contextMenu.style.top = `${e.clientY}px`;
+      contextMenu.style.left = `${e.clientX}px`;
+      contextMenu.style.display = "block";
+
+      // إعداد خيارات القائمة
+      contextMenu.querySelector("#copy").onclick = () => {
+        navigator.clipboard.writeText(messageElement.innerText).then(() => {
+          console.log("Message copied to clipboard");
+          contextMenu.style.display = "none";
+        });
+      };
+
+      contextMenu.querySelector("#paste").onclick = () => {
+        navigator.clipboard.readText().then(text => {
+          messageElement.innerText = text;
+          contextMenu.style.display = "none";
+        });
+      };
+
+      contextMenu.querySelector("#select-all").onclick = () => {
+        const range = document.createRange();
+        range.selectNodeContents(messageElement);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        contextMenu.style.display = "none";
+      };
+    } else {
+      contextMenu.style.display = "none";
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!contextMenu.contains(e.target)) {
+      contextMenu.style.display = "none";
+    }
+  });
+};
+
+setupContextMenu();

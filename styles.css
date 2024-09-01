@@ -9,7 +9,7 @@
 }
 ion-icon {
   font-size: 30px;
-  color: #387cff;
+  color: #0021ff;
   }
  .header {
   margin-top: 10px;
@@ -25,7 +25,7 @@ ion-icon {
 
 .logo-container2 ion-icon {
   font-size: 30px;
-  color: #387cff;
+  color: #0021ff;
   margin-left: 15px;
 }
 .header2, .chat-list .message, .typing-form {
@@ -40,7 +40,7 @@ ion-icon {
 }
 body {
   font-family: 'Manrope', sans-serif;
-  background-color: #F5F5F5; /* Lighter background color similar to Google */
+  background-color: white; /* Lighter background color similar to Google */
   color: #202124; /* Darker text color for readability */
   display: flex;
   flex-direction: column;
@@ -72,7 +72,7 @@ body {
 
 .icon {
 	margin: 10px;
-	color: #387cff;
+	color: #0021ff;
 	
 }
 
@@ -128,7 +128,7 @@ button {
   transition: background-color 0.3s, box-shadow 0.3s;
   width: auto; /* Full width for better layout */
   margin: 10px 0;
-  background-color: #387cff; /* Google blue color */
+  background-color: #0021ff; /* Google blue color */
   color: white;
 }
 
@@ -152,20 +152,21 @@ button:focus {
 .links {
   font-family: 'Manrope', sans-serif;
   margin-top: 20px;
+  text-decoration: none;
+  transition: color 0.3s ease;
   text-align: center; /* Center align links */
 }
 
 .links a {
   font-family: 'Manrope', sans-serif;
-  color: #1A73E8; /* Google blue color */
+  color: #0021ff; /* Google blue color */
   text-decoration: none;
   display: block;
   margin: 5px 0;
+
 }
 
-.links a:hover {
-  text-decoration: underline;
-}
+
 
   .footer {
   font-size: 0.85rem;

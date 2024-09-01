@@ -47,9 +47,9 @@
   justify-content: left;
 }
 
-.logo-container2 ion-icon {
-  font-size: 30px;
-  color: #387cff;
+.logo-container2 img {
+  width: 50px;
+  height: 50px;
   margin-left: 15px;
 }
 
@@ -105,10 +105,11 @@ body {
   background: var(--primary-color);
 }
 
-ion-icon {
-  font-size: 30px;
-  color: #387cff;
-  }
+.logo-img {
+  width: 30px;
+  height: 30px;
+}
+
   
   
 .header2, .chat-list .message, .typing-form {
@@ -140,7 +141,7 @@ body.hide-header .header2 {
   width: fit-content;
   font-size: 3rem;
   background-clip: text;
-  background: linear-gradient(to right, #387cff, #65abd9);
+  background: linear-gradient(to right, #0021ff, #116dff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -342,7 +343,7 @@ body.hide-header .header2 {
   font-size: 1rem;
   color: var(--text-color);
   padding: 1.1rem 4rem 1.1rem 1.5rem;
-  border-radius: 100px;
+  border-radius: 20px;
   background: var(--secondary-color);
 }
 
@@ -359,18 +360,18 @@ body.hide-header .header2 {
   height: 56px;
   flex-shrink: 0;
   cursor: pointer;
-  border-radius: 50%;
+  border-radius: 20px;
   display: flex;
   font-size: 1.4rem;
   color: white;
   align-items: center;
   justify-content: center;
-  background: #387cff;
+  background: #0021ff;
   transition: 0.2s ease;
 }
 
 .typing-area .icon:hover {
-  background: #387cff;
+  background: #0021ff;
 }
 
 .typing-form #send-message-button {
@@ -381,7 +382,35 @@ body.hide-header .header2 {
   transform: scale(0);
   background: transparent;
   transition: transform 0.2s ease;
-  color: var(--placeholder-color);
+  color: #0021ff;
+}
+/* قائمة السياق */
+.context-menu {
+    position: absolute;
+    background-color: var(--primary-color);
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    display: none;
+    z-index: 1000;
+	color: var(--text-color);
+}
+
+.context-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 5px;
+}
+
+.context-menu li {
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.context-menu li:hover {
+    background-color: #0021ff;
+	color: white;
+	border-radius: 15px;
 }
 
 .typing-form .typing-input:valid ~ #send-message-button {
@@ -400,7 +429,7 @@ body.hide-header .header2 {
   left: 0;
   width: 0;
   height: 4px;
-  background-color: #387cff;
+  background-color: #0021ff;
   transition: width 0.5s ease-in-out;
 }
 
@@ -443,6 +472,6 @@ body.hide-header .header2 {
   }
   ion-icon {
   font-size: 30px;
-  color: #387cff;
+  color: #0021ff;
   }
 }
