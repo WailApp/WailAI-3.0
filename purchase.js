@@ -133,11 +133,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         document.getElementById('buy-plus-btn').addEventListener('click', () => {
-            handlePurchase('plus', 200);
+            handlePurchase('plus', 2000);
         });
 
         document.getElementById('buy-team-btn').addEventListener('click', () => {
-            handlePurchase('team', 500);
+            handlePurchase('team', 5000);
         });
     });
 });
