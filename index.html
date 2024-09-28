@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>WailAI 3.0</title>
+  <title>WailAI</title>
   
   <!-- Linking Google Fonts For Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism.min.css" rel="stylesheet" />
@@ -57,7 +57,7 @@ if (
   <main class="main-content">
     <header class="header2">
       <div class="logo-container">
-        <h1 class="title">WailAI 3.0</h1>
+        <h1 class="title">Hi, there</h1>
       </div>
       <p class="subtitle">How can I help you today?</p>
       <!-- Suggestion list -->
@@ -104,23 +104,11 @@ if (
   </main>
   <div id="context-menu" class="context-menu non-selectable">
     <ul>
-        <li id="copy">ِ<span class="icon material-symbols-rounded">content_copy</span>Copy</li>
+        <li id="copy"><span class="icon material-symbols-rounded">content_copy</span>Copy</li>
         <li id="select-all"><span class="icon material-symbols-rounded">select</span>Select All</li>
     </ul>
 </div>
 
   <script src="script.js"></script>
-  <script>
-  // إضافة معالج حدث للنقر على الـ header
-document.querySelector('.header').addEventListener('click', () => {
-  // تحديد الرابط الذي تريد الانتقال إليه
-  const targetUrl = 'settings.html'; // استبدل بـ URL أو مسار القسم المطلوب
-  
-  // تنفيذ الانتقال
-  window.location.href = targetUrl; // إذا كان الرابط إلى صفحة جديدة
-  // window.location.hash = '#section-id'; // إذا كان الرابط إلى قسم معين على نفس الصفحة
-});
-
-  </script>
 </body>
 </html>
