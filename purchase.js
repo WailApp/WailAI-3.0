@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(docSnap => {
                 if (docSnap.exists) {
                     const userData = docSnap.data();
-                    document.getElementById('user-balance').textContent = `${userData.balance.toFixed(2)} DZD`;
+                    document.getElementById('user-balance').textContent = `${userData.balance.toFixed(2)} B`;
 
                     const subscriptionEndDate = userData.subscriptionEnd?.toDate(); // تاريخ انتهاء الاشتراك
 
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     }
                 } else {
-                    document.getElementById('user-balance').textContent = '0.00 DZD';
+                    document.getElementById('user-balance').textContent = '0 B';
                 }
             })
             .catch(error => {
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         const currentBalance = docSnap.data().balance || 0;
                         if (currentBalance >= finalPrice) {
                             const newBalance = currentBalance - finalPrice;
-                            if (confirm(`Are you sure you want to purchase ${productName} for ${finalPrice} DZD?`)) {
+                            if (confirm(`Are you sure you want to purchase ${productName} for ${finalPrice} B?`)) {
                                 const updateData = {
                                     balance: newBalance,
                                     subscription: productName,
