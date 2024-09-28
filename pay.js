@@ -29,9 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
         db.collection('users').doc(user.uid).get()
             .then(docSnap => {
                 if (docSnap.exists) {
-                    document.getElementById('user-balance').textContent = `${docSnap.data().balance.toFixed(2)} DA`;
+                    document.getElementById('user-balance').textContent = `${docSnap.data().balance.toFixed(2)} B`;
                 } else {
-                    document.getElementById('user-balance').textContent = '0 DA';
+                    document.getElementById('user-balance').textContent = '0 B';
                 }
             })
             .catch(error => {
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             const newBalance = currentBalance + amount;
                             db.collection('users').doc(user.uid).update({ balance: newBalance })
                                 .then(() => {
-                                    document.getElementById('user-balance').textContent = `DA${newBalance.toFixed(2)}`;
+                                    document.getElementById('user-balance').textContent = `B${newBalance.toFixed(2)}`;
                                     document.getElementById('status-message').textContent = 'Funds added successfully!';
                                 })
                                 .catch(error => {
