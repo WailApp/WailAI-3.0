@@ -139,6 +139,7 @@ body.hide-header .header2 {
 
 .header2 .title {
   width: fit-content;
+  margin-left: 10px;
   font-size: 3rem;
   background-clip: text;
   background: linear-gradient(to right, #0021ff, #116dff);
@@ -149,6 +150,7 @@ body.hide-header .header2 {
 .header2 .subtitle {
   font-size: 2.6rem;
   color: var(--text-color);
+  margin-left: 10px;
 }
 
 .suggestion-list {
