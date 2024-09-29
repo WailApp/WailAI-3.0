@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function disablePurchaseButtons() {
             document.getElementById('buy-plus-btn').disabled = true;
-            document.getElementById('buy-team-btn').disabled = true;
         }
 
         function handlePurchase(productName, basePrice) {
@@ -65,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             const usedBy = discountData.usedBy || [];
 
                             if (usedBy.includes(user.uid)) {
-                                document.getElementById('status-message').textContent = 'You have already used this discount code.';
+                                document.getElementById('status-message').textContent = 'You have already used this Code Promo.';
                                 return;
                             }
 
@@ -74,12 +73,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
                             proceedWithPurchase(finalPrice, productName, discountCode, usedBy);
                         } else {
-                            document.getElementById('status-message').textContent = 'Invalid discount code.';
+                            document.getElementById('status-message').textContent = 'Your Code Promo is not correct.';
                         }
                     })
                     .catch(error => {
                         console.error('Error fetching discount code: ', error);
-                        document.getElementById('status-message').textContent = 'Error fetching discount code.';
+                        document.getElementById('status-message').textContent = 'Error fetching Code Promo.';
                     });
             } else {
                 proceedWithPurchase(finalPrice, productName);
@@ -111,22 +110,22 @@ document.addEventListener('DOMContentLoaded', () => {
                                 db.collection('users').doc(user.uid).update(updateData)
                                 .then(() => {
                                     document.getElementById('user-balance').textContent = `${newBalance.toFixed(2)} B`;
-                                    document.getElementById('status-message').textContent = `${productName} purchased successfully!`;
+                                    document.getElementById('status-message').textContent = `${productName} purchased done!`;
                                     disablePurchaseButtons();
                                 })
                                 .catch(error => {
                                     console.error('Error updating balance: ', error);
-                                    document.getElementById('status-message').textContent = 'Error updating balance.';
+                                    document.getElementById('status-message').textContent = 'No Bitcoin in your Account.';
                                 });
                             }
                         } else {
-                            document.getElementById('status-message').textContent = 'Insufficient balance.';
+                            document.getElementById('status-message').textContent = 'Bitcoins are not enough.';
                         }
                     }
                 })
                 .catch(error => {
                     console.error('Error fetching current balance: ', error);
-                    document.getElementById('status-message').textContent = 'Error fetching current balance.';
+                    document.getElementById('status-message').textContent = 'Error fetching current Bitcoin.';
                 });
         }
 
@@ -134,9 +133,6 @@ document.addEventListener('DOMContentLoaded', () => {
             handlePurchase('plus', 2000);
         });
 
-        document.getElementById('buy-team-btn').addEventListener('click', () => {
-            handlePurchase('team', 5000);
-        });
     });
 });
 
