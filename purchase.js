@@ -20,8 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = 'login.html';
             return;
         }
-
-        document.getElementById('user-id').textContent = user.uid;
         document.getElementById('user-email').textContent = user.email;
 
         db.collection('users').doc(user.uid).get()
@@ -112,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                                 db.collection('users').doc(user.uid).update(updateData)
                                 .then(() => {
-                                    document.getElementById('user-balance').textContent = `${newBalance.toFixed(2)} DZD`;
+                                    document.getElementById('user-balance').textContent = `${newBalance.toFixed(2)} B`;
                                     document.getElementById('status-message').textContent = `${productName} purchased successfully!`;
                                     disablePurchaseButtons();
                                 })
