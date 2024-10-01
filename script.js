@@ -135,7 +135,7 @@ const checkSubscriptionAndHandleOutgoingChat = async () => {
       } else {
         console.log('User does not have a valid subscription or the subscription has expired.');
         if (messageCount >= 20) { // الحد الأقصى للرسائل
-          displayErrorMessage("You have exceeded the maximum number of allowed messages. Please upgrade your plan.");
+          displayErrorMessage("Stop! Your free period has expired.");
           isResponseGenerating = false; // إيقاف توليد الرد
           sendMessageButton.disabled = true; // تعطيل زر الإرسال
           typingForm.querySelector(".typing-input").disabled = true; // تعطيل حقل الإدخال
