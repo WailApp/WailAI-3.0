@@ -122,29 +122,29 @@ if (
           <span id="delete-chat-button" class="icon material-symbols-rounded">replay</span>
         </div>
       </form>
-      <p class="disclaimer-text">
-        AI can make mistakes. Please check the information.
-      </p>
-    </div>
-  </main>
-  <div id="context-menu" class="context-menu non-selectable">
+<p class="disclaimer-text">
+    AI can make mistakes. Please check the information.
+</p>
+</div>
+</main>
+<div id="context-menu" class="context-menu non-selectable">
     <ul>
         <li id="copy"><span class="icon material-symbols-rounded">content_copy</span>Copy</li>
         <li id="select-all"><span class="icon material-symbols-rounded">select</span>Select All</li>
     </ul>
 </div>
 
-  <script src="script.js"></script>
-	  <script>
-  // إضافة معالج حدث للنقر على الـ header
-document.querySelector('.settings-chat-button').addEventListener('click', () => {
-  // تحديد الرابط الذي تريد الانتقال إليه
-  const targetUrl = 'settings.html'; // استبدل بـ URL أو مسار القسم المطلوب
-  
-  // تنفيذ الانتقال
-  window.location.href = targetUrl; // إذا كان الرابط إلى صفحة جديدة
-  // window.location.hash = '#section-id'; // إذا كان الرابط إلى قسم معين على نفس الصفحة
-});
-	  </script>
+<script src="script.js"></script>
+<script>
+    // إضافة معالج حدث للنقر على الـ header
+    document.querySelector('.settings-chat-button').addEventListener('click', () => {
+        // تحديد الرابط الذي تريد الانتقال إليه
+        const targetUrl = 'settings.html'; // استبدل بـ URL أو مسار القسم المطلوب
+        
+        // تنفيذ الانتقال
+        window.location.href = targetUrl; // إذا كان الرابط إلى صفحة جديدة
+        // window.location.hash = '#section-id'; // إذا كان الرابط إلى قسم معين على نفس الصفحة
+    });
+</script>
 </body>
 </html>
