@@ -110,7 +110,6 @@ const showLoadingAnimation = () => {
 
   const incomingMessageDiv = createMessageElement(html, "incoming", "loading");
   chatContainer.appendChild(incomingMessageDiv);
-
   chatContainer.scrollTo(0, chatContainer.scrollHeight);
   generateAPIResponse(incomingMessageDiv);
 };
@@ -130,29 +129,25 @@ const checkSubscriptionAndHandleOutgoingChat = async () => {
 
       if ((subscription === 'plus' || subscription === 'team') && (subscriptionEnd === null || subscriptionEnd > now)) {
         console.log(`User has a valid ${subscription} subscription.`);
-        // يمكن للمستخدم إرسال رسائل دون قيود
         handleOutgoingChat();
       } else {
         console.log('No subscription');
-        if (messageCount >= 20) { // الحد الأقصى للرسائل
+        if (messageCount >= 20) {
           displayErrorMessage("Stop! Your free period has expired.");
-          isResponseGenerating = false; // إيقاف توليد الرد
-          sendMessageButton.disabled = true; // تعطيل زر الإرسال
-          typingForm.querySelector(".typing-input").disabled = true; // تعطيل حقل الإدخال
+          isResponseGenerating = false;
+          sendMessageButton.disabled = true;
+          typingForm.querySelector(".typing-input").disabled = true;
         } else {
-          // زيادة العداد وحفظه ثم إرسال الرسالة
           messageCount++;
-          await userDocRef.update({ messageCount }); // تحديث عدد الرسائل في Firebase
+          await userDocRef.update({ messageCount });
           handleOutgoingChat();
         }
       }
     } else {
       console.log('No such document!');
-      // معالجة المستخدمين الذين ليس لديهم مستند في قاعدة البيانات (يمكنك تنفيذ إجراءات إضافية هنا)
     }
   } catch (error) {
     console.error('Error getting document:', error);
-    // معالجة الخطأ (يمكنك تنفيذ إجراءات إضافية هنا)
   }
 };
 
@@ -161,7 +156,6 @@ const displayErrorMessage = (message) => {
   const errorMessageDiv = document.createElement("div");
   errorMessageDiv.classList.add("error-message");
 
-  // إضافة النص والزر
   errorMessageDiv.innerHTML = `
   <img class="avatar" src="icon.svg" alt="WailAI">
     <span class="error-text">${message}</span>
@@ -170,8 +164,7 @@ const displayErrorMessage = (message) => {
   `;
 
   document.body.appendChild(errorMessageDiv);
-
-  // جعل الرسالة تختفي بعد 5 ثوانٍ
+  
   setTimeout(() => {
     errorMessageDiv.remove();
   }, 5000);
@@ -196,68 +189,54 @@ style.textContent = `
   justify-content: center;
 }
 
-
-  .error-text {
-	font-family: "Manrope", sans-serif;
-    align-items: center;
-    flex: 1;
-  }
-  .error-button{
+.error-text {
+  font-family: "Manrope", sans-serif;
+  align-items: center;
+  flex: 1;
+}
+.error-button {
   font-family: 'Manrope', sans-serif;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 09px 16px;
-  font-size: 16px; /* Adjust font size */
+  font-size: 16px;
   font-weight: 500;
   line-height: 1.75;
-  border-radius: 30px; /* Slightly rounded corners */
+  border-radius: 30px;
   border: none;
   cursor: pointer;
   outline: none;
   transition: background-color 0.3s, box-shadow 0.3s;
-  width: auto; /* Full width for better layout */
   margin-left: 15px;
-  background-color: #0021ff; /* Google blue color */
+  background-color: #0021ff;
   color: white;
-  }
+}
 
-  .error-close-button {
-	width: 30px;
-    height: 30px;
-    background: var(--primary-color);
-	border-radius: 15px;
-    border: none;
-    color: var(--text-color);
-	align-items: center;
-    align-items: center;
-    font-size: 20px;
-    margin-left: 15px;
-  }
+.error-close-button {
+  width: 30px;
+  height: 30px;
+  background: var(--primary-color);
+  border-radius: 15px;
+  border: none;
+  color: var(--text-color);
+  font-size: 20px;
+  margin-left: 15px;
+}
 
-  .error-close-button:hover {
-	align-items: center;
-    align-items: center;
-    color: #d32f2f;
-  }
-@media (max-width: 768px){
-	.error-message {
-	left: 0%;
+.error-close-button:hover {
+  color: #d32f2f;
+}
+
+@media (max-width: 768px) {
+  .error-message {
+    left: 0%;
     transform: translateX(-0%);
     position: fixed;
     bottom: 10px;
     right: 10px;
-    background: var(--secondary-color);
-    color: var(--text-color);
-    padding: 20px;
-    border-radius: 20px;
-    display: flex;
-    z-index: 1000;
-	margin-bottom: 120px;
-	margin-left: 15px;
-	margin-right: 15px;
-	align-items: center;
-	justify-content: center;
+    margin-left: 15px;
+    margin-right: 15px;
   }  
 }
 `;
@@ -390,3 +369,4 @@ const setupContextMenu = () => {
 };
 
 setupContextMenu();
+	      
