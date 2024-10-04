@@ -140,6 +140,25 @@
   <script>
     // إضافة معالج حدث للنقر على زر الإعدادات
     document.querySelector('.settings-chat-button').addEventListener('click', () => {
+        const targetUrl = 'settings.html';
+        window.location.href = targetUrl;
+    });
+
+    // إضافة وظائف لنسخ وتحديد الكل
+    document.getElementById('copy').addEventListener('click', () => {
+        const inputField = document.querySelector('.typing-input');
+        inputField.select();
+        document.execCommand('copy');
+        alert('تم النسخ إلى الحافظة!');
+    });
+
+    document.getElementById('select-all').addEventListener('click', () => {
+        const inputField = document.querySelector('.typing-input');
+        inputField.select();
+        alert('تم تحديد الكل!');
+    });
+    // إضافة معالج حدث للنقر على زر الإعدادات
+    document.querySelector('.settings-chat-button').addEventListener('click', () => {
         // تحديد الرابط الذي تريد الانتقال إليه
         const targetUrl = 'settings.html'; // استبدل بـ URL أو مسار القسم المطلوب
         
