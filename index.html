@@ -132,7 +132,6 @@
   <div id="context-menu" class="context-menu non-selectable">
     <ul>
         <li id="copy"><span class="icon material-symbols-rounded">content_copy</span>Copy</li>
-        <li id="select-all"><span class="icon material-symbols-rounded">select</span>Select All</li>
     </ul>
   </div>
 
@@ -149,13 +148,11 @@
         const inputField = document.querySelector('.typing-input');
         inputField.select();
         document.execCommand('copy');
-        alert('تم النسخ إلى الحافظة!');
     });
 
     document.getElementById('select-all').addEventListener('click', () => {
         const inputField = document.querySelector('.typing-input');
         inputField.select();
-        alert('تم تحديد الكل!');
     });
     // إضافة معالج حدث للنقر على زر الإعدادات
     document.querySelector('.settings-chat-button').addEventListener('click', () => {
