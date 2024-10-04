@@ -16,11 +16,12 @@
   <link rel="icon" type="image/png" href="icon.svg">
   <link rel="apple-touch-icon" href="icon.svg" sizes="512x512">
   <meta name="author" content="WailTech">
-       <!-- Firebase SDKs -->
-    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-storage-compat.js"></script>
+  
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-storage-compat.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
   <script src="data.js" defer></script>
@@ -33,25 +34,24 @@
       <img class="avatar" src="icon.svg" alt="WailAI">
     </div>
   </header>
-<script>
-
-if (
-    // فحص لأي متصفح قديم غير مدعوم
-    navigator.userAgent.indexOf('MSIE') !== -1 || // Internet Explorer
-    navigator.userAgent.indexOf('Trident/') > 0 || // Internet Explorer 11 والإصدارات الأحدث
-    navigator.userAgent.indexOf('Opera') !== -1 || // Opera 12 والإصدارات الأقدم
-    navigator.userAgent.indexOf('Edge') !== -1 // Microsoft Edge قديمة
-	    (navigator.userAgent.indexOf('Chrome') !== -1 && parseInt(navigator.userAgent.match(/Chrome\/(\d+)/)[1], 10) < 50) || // Google Chrome الإصدارات القديمة (أقل من 50)
-    (navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Version/') !== -1 && parseInt(navigator.userAgent.match(/Version\/(\d+)/)[1], 10) < 10) // Safari الإصدارات القديمة (أقل من 10)
-) {
-    console.log('المتصفح غير مدعوم للخدمات الجديدة والإشعارات.');
-    window.location.href = 'unsupported-browser.html';
-} else {
-    console.log('المتصفح مدعوم للخدمات الجديدة والإشعارات.');
-}
-
-
-</script>
+  
+  <script>
+    if (
+      // فحص لأي متصفح قديم غير مدعوم
+      navigator.userAgent.indexOf('MSIE') !== -1 || 
+      navigator.userAgent.indexOf('Trident/') > 0 || 
+      navigator.userAgent.indexOf('Opera') !== -1 || 
+      navigator.userAgent.indexOf('Edge') !== -1 || 
+      (navigator.userAgent.indexOf('Chrome') !== -1 && parseInt(navigator.userAgent.match(/Chrome\/(\d+)/)[1], 10) < 50) || 
+      (navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Version/') !== -1 && parseInt(navigator.userAgent.match(/Version\/(\d+)/)[1], 10) < 10)
+    ) {
+      console.log('المتصفح غير مدعوم للخدمات الجديدة والإشعارات.');
+      window.location.href = 'unsupported-browser.html';
+    } else {
+      console.log('المتصفح مدعوم للخدمات الجديدة والإشعارات.');
+    }
+  </script>
+  
   <!-- Main Content -->
   <main class="main-content">
     <header class="header2">
@@ -65,7 +65,7 @@ if (
           <h4 class="text">Latest features in artificial intelligence</h4>
           <span class="icon material-symbols-rounded">new_releases</span>
           <div class="progress-bar"></div>  
-	</li>
+        </li>
         <li class="suggestion">
           <h4 class="text">How many GTA games have been released and which one is the latest?</h4>
           <span class="icon material-symbols-rounded">stadia_controller</span>
@@ -87,56 +87,58 @@ if (
           <div class="progress-bar"></div>  
         </li>
         <li class="suggestion">
-          <h4 class="text">How do I use Photoshop?.</h4>
+          <h4 class="text">How do I use Photoshop?</h4>
           <span class="icon material-symbols-rounded">photo_camera</span>
           <div class="progress-bar"></div>  
-	</li>
+        </li>
         <li class="suggestion">
           <h4 class="text">Ten famous songs in the world</h4>
           <span class="icon material-symbols-rounded">music_note</span>
           <div class="progress-bar"></div>  
-	</li>
+        </li>
         <li class="suggestion">
           <h4 class="text">How do I shoot a movie?</h4>
           <span class="icon material-symbols-rounded">videocam</span>
           <div class="progress-bar"></div>  
-	</li>
-	<li class="suggestion">
+        </li>
+        <li class="suggestion">
           <h4 class="text">I want to add more of your suggestions...</h4>
           <span class="icon material-symbols-rounded">more_horiz</span>
           <div class="progress-bar"></div>  
-	</li>
+        </li>
       </ul>
     </header>
-<div class="chat-list"></div>
+    
+    <div class="chat-list"></div>
+    
     <!-- Typing Area -->
     <div class="typing-area">
       <form action="#" class="typing-form">
         <div class="input-wrapper">
-		
           <input type="text" placeholder="Ask WailAI" class="typing-input" required />
           <button id="send-message-button" class="icon material-symbols-rounded">arrow_upward</button>
         </div>
         <div class="action-buttons">
-          <span href="settings.html" class="icon material-symbols-rounded" style="background-color: var(--secondary-color); color: var(--text-color)">settings</span>
+          <span href="settings.html" class="icon material-symbols-rounded settings-chat-button" style="background-color: var(--secondary-color); color: var(--text-color)">settings</span>
           <span id="delete-chat-button" class="icon material-symbols-rounded">replay</span>
         </div>
       </form>
-<p class="disclaimer-text">
-    AI can make mistakes. Please check the information.
-</p>
-</div>
-</main>
-<div id="context-menu" class="context-menu non-selectable">
+      <p class="disclaimer-text">
+          AI can make mistakes. Please check the information.
+      </p>
+    </div>
+  </main>
+  
+  <div id="context-menu" class="context-menu non-selectable">
     <ul>
         <li id="copy"><span class="icon material-symbols-rounded">content_copy</span>Copy</li>
         <li id="select-all"><span class="icon material-symbols-rounded">select</span>Select All</li>
     </ul>
-</div>
+  </div>
 
-<script src="script.js"></script>
-<script>
-    // إضافة معالج حدث للنقر على الـ header
+  <script src="script.js"></script>
+  <script>
+    // إضافة معالج حدث للنقر على زر الإعدادات
     document.querySelector('.settings-chat-button').addEventListener('click', () => {
         // تحديد الرابط الذي تريد الانتقال إليه
         const targetUrl = 'settings.html'; // استبدل بـ URL أو مسار القسم المطلوب
@@ -145,6 +147,6 @@ if (
         window.location.href = targetUrl; // إذا كان الرابط إلى صفحة جديدة
         // window.location.hash = '#section-id'; // إذا كان الرابط إلى قسم معين على نفس الصفحة
     });
-</script>
+  </script>
 </body>
 </html>
