@@ -51,9 +51,10 @@
   padding: 10px; /* مسافة داخلية */
   border-radius: 20px; /* تدوير الزوايا */
   margin-bottom: 10px; /* مسافة بين الرسائل */
-  max-width: auto; /* حجم الرسالة */
-  word-wrap: break-word; /* كسر الكلمات الطويلة */
+  display: inline-block; /* لجعل العرض يتكيف مع المحتوى */
+  max-width: 80%; /* أقصى عرض */
   font-size: 16px; /* حجم الخط */
+  float: right;
 }
 
 .logo-container2 img {
