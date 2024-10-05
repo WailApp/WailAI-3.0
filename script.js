@@ -115,6 +115,7 @@ const showTypingEffect = (text, textElement, incomingMessageDiv) => {
   const typingInterval = setInterval(typeNextChar, 75);
 };
 
+
 // جلب الرد من API بناءً على رسالة المستخدم
 const generateAPIResponse = async (incomingMessageDiv) => {
   const textElement = incomingMessageDiv.querySelector(".text");
