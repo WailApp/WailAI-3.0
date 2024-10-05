@@ -50,7 +50,7 @@
   background-color: var(--secondary-color); /* لون الخلفية */
   padding: 10px; /* مسافة داخلية */
   border-radius: 20px; /* تدوير الزوايا */
-  margin-bottom: 10px; /* مسافة بين الرسائل */
+  margin: 10px; /* مسافة بين الرسائل */
   display: inline-block; /* لجعل العرض يتكيف مع المحتوى */
   max-width: 80%; /* أقصى عرض */
   font-size: 16px; /* حجم الخط */
