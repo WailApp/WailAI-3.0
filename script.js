@@ -35,76 +35,30 @@ const loadDataFromLocalstorage = () => {
 };
 
 // إنشاء عنصر رسالة جديد وإرجاعه
+const createMessageElement = (content, ...classes) => {
+  const div = document.createElement("div");
+  div.classList.add("message", ...classes);
+  div.innerHTML = content;
+  return div;
+};
+
+// عرض تأثير الكتابة بإظهار الكلمات واحدة تلو الأخرى
 const showTypingEffect = (text, textElement, incomingMessageDiv) => {
   const words = text.split(' ');
   let currentWordIndex = 0;
-  let currentCharIndex = 0;
-  let inCodeBlock = false;
-  let codeContent = '';
-  let codeLanguage = '';
 
-  const typeNextChar = () => {
-    if (currentWordIndex >= words.length) {
+  const typingInterval = setInterval(() => {
+    textElement.innerText += (currentWordIndex === 0 ? '' : ' ') + words[currentWordIndex++];
+    incomingMessageDiv.querySelector(".icon").classList.add("hide");
+
+    if (currentWordIndex === words.length) {
       clearInterval(typingInterval);
       isResponseGenerating = false;
       incomingMessageDiv.querySelector(".icon").classList.remove("hide");
       localStorage.setItem("saved-chats", chatContainer.innerHTML); // حفظ الدردشات في localStorage
-      Prism.highlightAll(); // تطبيق تلوين الصيغة بعد الانتهاء
-      return;
     }
-
-    const currentWord = words[currentWordIndex];
-    const currentChar = currentWord[currentCharIndex];
-
-    if (currentChar === undefined) {
-      currentCharIndex = 0;
-      currentWordIndex++;
-      textElement.innerHTML += ' ';
-      setTimeout(typeNextChar, 75); // انتظار قبل كتابة الكلمة التالية
-      return;
-    }
-
-    // التعامل مع كتل الكود
-    if (currentChar === '`') {
-      // بداية كتلة الكود
-      if (currentWord.slice(currentCharIndex).startsWith('```') && !inCodeBlock) {
-        inCodeBlock = true;
-        codeLanguage = currentWord.slice(currentCharIndex + 3).split('\n')[0].trim() || 'javascript'; // تحديد لغة البرمجة
-        textElement.classList.add('code-block');
-        textElement.innerHTML += `<pre><code class="language-${codeLanguage}">`;
-        currentCharIndex += 3; // تجاوز ```
-      } 
-      // نهاية كتلة الكود
-      else if (currentWord.slice(currentCharIndex).startsWith('```') && inCodeBlock) {
-        inCodeBlock = false;
-        textElement.innerHTML += Prism.highlight(codeContent, Prism.languages[codeLanguage] || Prism.languages.javascript, codeLanguage);
-        textElement.innerHTML += `</code></pre>`;
-        codeContent = '';
-        currentCharIndex += 3; // تجاوز ```
-      } 
-      // داخل كتلة الكود
-      else {
-        if (inCodeBlock) {
-          codeContent += currentChar;
-        } else {
-          textElement.innerHTML += currentChar;
-        }
-      }
-    } 
-    // التعامل مع النص العادي
-    else {
-      if (inCodeBlock) {
-        codeContent += currentChar;
-      } else {
-        textElement.innerHTML += currentChar;
-      }
-    }
-
-    currentCharIndex++;
-    setTimeout(typeNextChar, 50); // سرعة الكتابة
-  };
-
-  const typingInterval = setInterval(typeNextChar, 75);
+    chatContainer.scrollTo(0, chatContainer.scrollHeight);
+  }, 75);
 };
 
 // جلب الرد من API بناءً على رسالة المستخدم
@@ -415,4 +369,3 @@ const setupContextMenu = () => {
 };
 
 setupContextMenu();
-setupContextMen
