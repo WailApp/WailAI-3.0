@@ -84,7 +84,7 @@ window.auth.onAuthStateChanged(user => {
         const errorMessageDiv = document.createElement('div');
         errorMessageDiv.className = 'error-message';
         errorMessageDiv.innerHTML = `
-            <span class="error-text">First login to continue</span>
+            <span class="error-text">You need to log in.</span>
             <button class="error-button" onclick="window.location.href='login.html'">Login</button>
         `;
 
