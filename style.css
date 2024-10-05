@@ -227,13 +227,14 @@ body.hide-header .header2 {
   align-items: right;
 }
 
-chat-list .message .message-content2 {
+.chat-list .message .message-content2 {
   display: flex;
   gap: 1.5rem;
   width: 100%;
-  align-items: left;
-  background: var(--primary-color);
-  border-radius: 100%;
+  align-items: center; /* تعديل: يجب استخدام center بدلاً من left ليتم توسيط العناصر */
+  background-color: var(--primary-color); /* تعديل: استخدام backgroundColor بدلاً من background */
+  border-radius: 10px; /* تعديل: تقليل قيمة border-radius لتناسب الشكل المطلوب */
+  padding: 10px; /* إضافة حشو لزيادة الفاصل بين العناصر داخل الرسالة */
 }
 
 .chat-list .message .text {
