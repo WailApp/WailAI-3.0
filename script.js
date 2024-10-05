@@ -98,6 +98,7 @@ const generateAPIResponse = async (incomingMessageDiv) => {
 // عرض الرسوم المتحركة أثناء الانتظار لرد API
 const showLoadingAnimation = () => {
   const html = `<div class="message-content">
+                 <img class="avatar" src="icon.svg" alt="WailAI">
                   <p class="text"></p>
                   <div class="loading-indicator">
                     <div class="loading-bar"></div>
@@ -156,7 +157,6 @@ const displayErrorMessage = (message) => {
   errorMessageDiv.classList.add("error-message");
 
   errorMessageDiv.innerHTML = `
-  <img class="avatar" src="icon.svg" alt="WailAI">
     <span class="error-text">${message}</span>
     <button class="error-button" onclick="window.location.href='update.html'">Get Pro</button>
     <button class="error-close-button" onclick="this.parentElement.remove()">×</button>
