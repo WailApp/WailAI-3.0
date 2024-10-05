@@ -229,25 +229,30 @@ document.querySelector('.settings-chat-button').addEventListener('click', () => 
 });
 
   </script>
-    <script>
+      <script>
     function formatText() {
       const contentDiv = document.getElementById('content');
-      let text = contentDiv.innerText; // استخدم innerText بدلاً من innerHTML
+      let text = contentDiv.innerText;  // الحصول على النص الخام
 
-      // تحويل النص الغامق المحاط بـ ** إلى <span class="bold">
-      text = text.replace(/\*\*\*(.*?)\*\*\*/g, '<span class="bold italic">$1</span>'); // *** للنص الغامق والمائل
-      text = text.replace(/\*\*(.*?)\*\*/g, '<span class="bold">$1</span>'); // للنص الغامق
-      text = text.replace(/\*(.*?)\*/g, '<span class="italic">$1</span>'); // للنص المائل
+      // كشف النصوص الغامقة والمائلة (***)
+      text = text.replace(/\*\*\*(.*?)\*\*\*/g, '<span class="bold italic">$1</span>');
+      
+      // كشف النصوص الغامقة (**)
+      text = text.replace(/\*\*(.*?)\*\*/g, '<span class="bold">$1</span>');
+      
+      // كشف النصوص المائلة (*)
+      text = text.replace(/\*(.*?)\*/g, '<span class="italic">$1</span>');
+      
+      // كشف الأكواد (```)
+      text = text.replace(/`(.*?)`/g, '<span class="code">$1</span>');
 
-      // تحويل النص المحاط بعلامات كود ``` إلى <span class="code">
-      text = text.replace(/```(.*?)```/g, '<span class="code">$1</span>');
-
-      // وضع النص المعدل داخل الـ Div
+      // تحديث محتوى div بالنص المحدث
       contentDiv.innerHTML = text;
     }
 
-    // تشغيل الوظيفة عند تحميل الصفحة
+    // استدعاء الدالة عند تحميل الصفحة
     window.onload = formatText;
-    </script>
+      </script>
+    
 </body>
 </html>
