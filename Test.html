@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .bold {
+      font-weight: bold;
+    }
+    .italic {
+      font-style: italic;
+    }
+    .code {
+      background-color: #f0f0f0;
+      font-family: monospace;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+  </style>
+  <title>Text Formatting Detection</title>
+</head>
+<body>
+
+  <div id="content">
+    **Hello World** and *this is italic* and ***bold italic*** and `code snippet`
+  </div>
+
+  <script>
+    function formatText() {
+      const contentDiv = document.getElementById('content');
+      let text = contentDiv.innerText;  // الحصول على النص الخام
+
+      // كشف النصوص الغامقة والمائلة (***)
+      text = text.replace(/\*\*\*(.*?)\*\*\*/g, '<span class="bold italic">$1</span>');
+      
+      // كشف النصوص الغامقة (**)
+      text = text.replace(/\*\*(.*?)\*\*/g, '<span class="bold">$1</span>');
+      
+      // كشف النصوص المائلة (*)
+      text = text.replace(/\*(.*?)\*/g, '<span class="italic">$1</span>');
+      
+      // كشف الأكواد (```)
+      text = text.replace(/`(.*?)`/g, '<span class="code">$1</span>');
+
+      // تحديث محتوى div بالنص المحدث
+      contentDiv.innerHTML = text;
+    }
+
+    // استدعاء الدالة عند تحميل الصفحة
+    window.onload = formatText;
+  </script>
+
+</body>
+</html>
