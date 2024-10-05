@@ -98,7 +98,6 @@ const generateAPIResponse = async (incomingMessageDiv) => {
 // عرض الرسوم المتحركة أثناء الانتظار لرد API
 const showLoadingAnimation = () => {
   const html = `<div class="message-content">
-                  <img class="avatar" src="icon.svg" alt="WailAI">
                   <p class="text"></p>
                   <div class="loading-indicator">
                     <div class="loading-bar"></div>
@@ -249,7 +248,6 @@ const handleOutgoingChat = () => {
   isResponseGenerating = true;
 
   const html = `<div class="message-content">
-                  <img class="avatar" src="images/user.jpg" alt="User avatar">
                   <p class="text"></p>
                 </div>`;
 
