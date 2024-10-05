@@ -227,6 +227,15 @@ body.hide-header .header2 {
   align-items: center;
 }
 
+chat-list .message .message-content2 {
+  display: flex;
+  gap: 1.5rem;
+  width: 100%;
+  align-items: center;
+  background: var(--primary-color);
+  border-radius: 100%;
+}
+
 .chat-list .message .text {
   color: var(--text-color);
   white-space: pre-wrap;
