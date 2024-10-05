@@ -35,7 +35,20 @@
       <img class="avatar" src="icon.svg" alt="WailAI">
     </div>
   </header>
-  
+    <style>
+    .bold {
+      font-weight: bold;
+    }
+    .italic {
+      font-style: italic;
+    }
+    .code {
+      background-color: #f5f5f5;
+      font-family: monospace;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    </style>
   <script>
     if (
       // فحص لأي متصفح قديم غير مدعوم
@@ -75,25 +88,7 @@ self.addEventListener('fetch', (event) => {
     });
   });
     }
-      function formatText() {
-      const contentDiv = document.getElementById('content');
-      let text = contentDiv.innerHTML;
 
-      // تحويل النص الغامق المحاط بـ ** إلى <span class="bold">
-      text = text.replace(/\*\*(.*?)\*\*/g, '<span class="bold">$1</span>');
-
-      // تحويل النص المائل المحاط بـ * إلى <span class="italic">
-      text = text.replace(/\*(.*?)\*/g, '<span class="italic">$1</span>');
-
-      // تحويل النص المحاط بعلامات كود ``` إلى <span class="code">
-      text = text.replace(/```(.*?)```/g, '<span class="code">$1</span>');
-
-      // وضع النص المعدل داخل الـ Div
-      contentDiv.innerHTML = text;
-    }
-
-    // تشغيل الوظيفة عند تحميل الصفحة
-    window.onload = formatText;
   </script>
   
   <!-- Main Content -->
@@ -154,7 +149,27 @@ self.addEventListener('fetch', (event) => {
     </header>
     
     <div class="chat-list"></div>
-    
+      <script>
+    function formatText() {
+      const contentDiv = document.getElementById('content');
+      let text = contentDiv.innerHTML;
+
+      // تحويل النص الغامق المحاط بـ ** إلى <span class="bold">
+      text = text.replace(/\*\*(.*?)\*\*/g, '<span class="bold">$1</span>');
+
+      // تحويل النص المائل المحاط بـ * إلى <span class="italic">
+      text = text.replace(/\*(.*?)\*/g, '<span class="italic">$1</span>');
+
+      // تحويل النص المحاط بعلامات كود ``` إلى <span class="code">
+      text = text.replace(/```(.*?)```/g, '<span class="code">$1</span>');
+
+      // وضع النص المعدل داخل الـ Div
+      contentDiv.innerHTML = text;
+    }
+
+    // تشغيل الوظيفة عند تحميل الصفحة
+    window.onload = formatText;
+      </script>
     <!-- Typing Area -->
     <div class="typing-area">
       <form action="#" class="typing-form">
