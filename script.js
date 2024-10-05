@@ -68,31 +68,39 @@ const showTypingEffect = (text, textElement, incomingMessageDiv) => {
       currentCharIndex = 0;
       currentWordIndex++;
       textElement.innerHTML += ' ';
-      setTimeout(typeNextChar, 75); // انتظار قبل كتابة الحرف التالي
+      setTimeout(typeNextChar, 75); // انتظار قبل كتابة الكلمة التالية
       return;
     }
 
+    // التعامل مع كتل الكود
     if (currentChar === '`') {
+      // بداية كتلة الكود
       if (currentWord.slice(currentCharIndex).startsWith('```') && !inCodeBlock) {
         inCodeBlock = true;
-        codeLanguage = currentWord.slice(currentCharIndex + 3).split('\n')[0].trim(); // تحديد لغة البرمجة
+        codeLanguage = currentWord.slice(currentCharIndex + 3).split('\n')[0].trim() || 'javascript'; // تحديد لغة البرمجة
         textElement.classList.add('code-block');
         textElement.innerHTML += `<pre><code class="language-${codeLanguage}">`;
         currentCharIndex += 3; // تجاوز ```
-      } else if (currentWord.slice(currentCharIndex).startsWith('```') && inCodeBlock) {
+      } 
+      // نهاية كتلة الكود
+      else if (currentWord.slice(currentCharIndex).startsWith('```') && inCodeBlock) {
         inCodeBlock = false;
         textElement.innerHTML += Prism.highlight(codeContent, Prism.languages[codeLanguage] || Prism.languages.javascript, codeLanguage);
         textElement.innerHTML += `</code></pre>`;
         codeContent = '';
         currentCharIndex += 3; // تجاوز ```
-      } else {
+      } 
+      // داخل كتلة الكود
+      else {
         if (inCodeBlock) {
           codeContent += currentChar;
         } else {
           textElement.innerHTML += currentChar;
         }
       }
-    } else {
+    } 
+    // التعامل مع النص العادي
+    else {
       if (inCodeBlock) {
         codeContent += currentChar;
       } else {
@@ -101,12 +109,11 @@ const showTypingEffect = (text, textElement, incomingMessageDiv) => {
     }
 
     currentCharIndex++;
-    setTimeout(typeNextChar, 50); // سرعة ظهور الحرف
+    setTimeout(typeNextChar, 50); // سرعة الكتابة
   };
 
   const typingInterval = setInterval(typeNextChar, 75);
 };
-
 
 // جلب الرد من API بناءً على رسالة المستخدم
 const generateAPIResponse = async (incomingMessageDiv) => {
