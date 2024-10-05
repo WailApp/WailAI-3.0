@@ -46,6 +46,17 @@
   align-items: left;
   justify-content: left;
 }
+.message-content2 {
+  background-color: var(--secondary-color); /* لون الخلفية */
+  padding: 10px; /* مسافة داخلية */
+  border-radius: 8px; /* تدوير الزوايا */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* إضافة ظل */
+  margin-bottom: 10px; /* مسافة بين الرسائل */
+  max-width: 80%; /* حجم الرسالة */
+  word-wrap: break-word; /* كسر الكلمات الطويلة */
+  font-size: 16px; /* حجم الخط */
+  color: #333; /* لون النص */
+}
 
 .logo-container2 img {
   width: 50px;
