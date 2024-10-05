@@ -35,14 +35,6 @@ const loadDataFromLocalstorage = () => {
 };
 
 // إنشاء عنصر رسالة جديد وإرجاعه
-const createMessageElement = (content, ...classes) => {
-  const div = document.createElement("div");
-  div.classList.add("message", ...classes);
-  div.innerHTML = content;
-  return div;
-};
-
-// عرض تأثير الكتابة بإظهار الكلمات واحدة تلو الأخرى
 const showTypingEffect = (text, textElement, incomingMessageDiv) => {
   const words = text.split(' ');
   let currentWordIndex = 0;
@@ -114,7 +106,6 @@ const showTypingEffect = (text, textElement, incomingMessageDiv) => {
 
   const typingInterval = setInterval(typeNextChar, 75);
 };
-
 
 // جلب الرد من API بناءً على رسالة المستخدم
 const generateAPIResponse = async (incomingMessageDiv) => {
