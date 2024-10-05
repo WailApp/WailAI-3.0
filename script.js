@@ -247,7 +247,7 @@ const handleOutgoingChat = () => {
 
   isResponseGenerating = true;
 
-  const html = `<div class="message-content">
+  const html = `<div class="message-content2">
                   <p class="text"></p>
                 </div>`;
 
