@@ -132,7 +132,7 @@
   <div id="context-menu" class="context-menu non-selectable">
     <ul>
         <li id="copy"><span class="icon material-symbols-rounded"></span>Copy All</li>
-        <li id="stop"><span class="icon material-symbols-rounded"></span>Stop</li>
+        <li id="html"><span class="icon material-symbols-rounded"></span>Run as Html</li>
         <li id="report"><span class="icon material-symbols-rounded"></span>Report</li>
     </ul>
   </div>
@@ -167,7 +167,12 @@
         });
     }
 });
-    
+    document.getElementById("html").addEventListener("click", function() {
+    const htmlContent = document.getElementById("code").value;
+    const newWindow = window.open();
+    newWindow.document.write(htmlContent);
+    newWindow.document.close();
+});
 
     document.getElementById('select-all').addEventListener('click', () => {
         const inputField = document.querySelector('.typing-input');
