@@ -139,14 +139,14 @@
 
   <script src="script.js"></script>
   <script>
-    // إضافة معالج حدث للنقر على زر الإعدادات
-    document.querySelector('.settings-chat-button').addEventListener('click', () => {
-        const targetUrl = 'settings.html';
-        window.location.href = targetUrl;
-    });
+// إضافة معالج حدث للنقر على زر الإعدادات
+document.querySelector('.settings-chat-button').addEventListener('click', () => {
+    const targetUrl = 'settings.html';
+    window.location.href = targetUrl;
+});
 
-    // إضافة وظائف لنسخ وتحديد الكل
-    document.getElementById('copy').addEventListener('click', () => {
+// إضافة وظائف لنسخ وتحديد الكل
+document.getElementById('copy').addEventListener('click', () => {
     const inputField = document.querySelector('.typing-input');
 
     if (inputField) {
@@ -161,32 +161,35 @@
             `;
 
             // إضافة الرسالة إلى الصفحة
-            document.body.appendChild(errorMessageDiv);
+            document.getElementById('message-container').appendChild(errorMessageDiv);
         }).catch(err => {
             console.error('Failed to copy text: ', err);
         });
     }
 });
-    document.getElementById("html").addEventListener("click", function() {
+
+// تشغيل المحتوى كـ HTML في نافذة جديدة
+document.getElementById("html").addEventListener("click", function() {
     const htmlContent = document.getElementById("code").value;
     const newWindow = window.open();
     newWindow.document.write(htmlContent);
     newWindow.document.close();
 });
 
-    document.getElementById('select-all').addEventListener('click', () => {
-        const inputField = document.querySelector('.typing-input');
+// تحديد الكل
+document.getElementById('select-all').addEventListener('click', () => {
+    const inputField = document.querySelector('.typing-input');
+    if (inputField) {
         inputField.select();
-    });
-    // إضافة معالج حدث للنقر على زر الإعدادات
-    document.querySelector('.settings-chat-button').addEventListener('click', () => {
-        // تحديد الرابط الذي تريد الانتقال إليه
-        const targetUrl = 'settings.html'; // استبدل بـ URL أو مسار القسم المطلوب
-        
-        // تنفيذ الانتقال
-        window.location.href = targetUrl; // إذا كان الرابط إلى صفحة جديدة
-        // window.location.hash = '#section-id'; // إذا كان الرابط إلى قسم معين على نفس الصفحة
-    });
+    }
+});
+
+// إضافة معالج حدث للنقر على زر الإعدادات
+document.querySelector('.settings-chat-button').addEventListener('click', () => {
+    const targetUrl = 'settings.html'; 
+    window.location.href = targetUrl;
+});
+    
   </script>
 </body>
 </html>
