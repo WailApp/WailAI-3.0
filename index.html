@@ -144,7 +144,6 @@ document.querySelector('.settings-chat-button').addEventListener('click', () => 
     window.location.href = targetUrl;
 });
 
-// إضافة وظائف لنسخ وتحديد الكل
 document.getElementById('copy').addEventListener('click', () => {
     const inputField = document.querySelector('.typing-input');
 
@@ -156,16 +155,17 @@ document.getElementById('copy').addEventListener('click', () => {
             errorMessageDiv.className = 'error-message';
             errorMessageDiv.innerHTML = `
                 <span class="error-text">Copied to clipboard.</span>
-                <button class="error-close-button" onclick="this.parentElement.remove()">×</button>
+                <button class="error-button" onclick="window.location.href='login.html'">Login</button>
             `;
 
             // إضافة الرسالة إلى الصفحة
-            document.getElementById('message-container').appendChild(errorMessageDiv);
+            document.body.appendChild(errorMessageDiv);
         }).catch(err => {
             console.error('Failed to copy text: ', err);
         });
     }
 });
+
 
 // تشغيل المحتوى كـ HTML في نافذة جديدة
 document.getElementById("html").addEventListener("click", function() {
