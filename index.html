@@ -2,10 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>WailAI</title>
-  
+      <style>
+    .bold {
+      font-weight: bold;
+    }
+    .italic {
+      font-style: italic;
+    }
+    .code {
+      background-color: #f0f0f0;
+      font-family: monospace;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+      </style>
   <!-- Linking Google Fonts For Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism.min.css" rel="stylesheet" />
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -35,20 +49,7 @@
       <img class="avatar" src="icon.svg" alt="WailAI">
     </div>
   </header>
-    <style>
-    .bold {
-      font-weight: bold;
-    }
-    .italic {
-      font-style: italic;
-    }
-    .code {
-      background-color: #f0f0f0;
-      font-family: monospace;
-      padding: 2px 4px;
-      border-radius: 4px;
-    }
-      </style>
+
   <script>
     if (
       // فحص لأي متصفح قديم غير مدعوم
@@ -90,7 +91,7 @@ self.addEventListener('fetch', (event) => {
     }
 
   </script>
-  
+  <div id="content">
   <!-- Main Content -->
   <main class="main-content">
     <header class="header2">
@@ -106,7 +107,7 @@ self.addEventListener('fetch', (event) => {
           <div class="progress-bar"></div>  
         </li>
         <li class="suggestion">
-          <h4 class="text">How many **GTA** games have been released and which one is the latest?</h4>
+          <h4 class="text">How many GTA games have been released and which one is the latest?</h4>
           <span class="icon material-symbols-rounded">stadia_controller</span>
           <div class="progress-bar"></div>  
         </li>
@@ -172,6 +173,7 @@ self.addEventListener('fetch', (event) => {
     <ul>
         <li id="copy"><span class="icon material-symbols-rounded"></span>Copy All</li>
     </ul>
+  </div>
   </div>
 
   <script src="script.js"></script>
