@@ -50,7 +50,6 @@ const showTypingEffect = (text, textElement, incomingMessageDiv) => {
 
   // استخدام innerHTML لضمان تفسير الكود بشكل صحيح
   text = text.replace(/```(.*?)```/g, '<span class="code-block">$1</span>');
-
   const typingInterval = setInterval(() => {
     textElement.innerHTML += (currentWordIndex === 0 ? '' : ' ') + words[currentWordIndex++];
     incomingMessageDiv.querySelector(".icon").classList.add("hide");
