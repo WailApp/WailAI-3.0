@@ -49,7 +49,7 @@
 .message-content2 {
   background-color: var(--secondary-color); /* لون الخلفية */
   padding: 10px; /* مسافة داخلية */
-  border-radius: 20px; /* تدوير الزوايا */
+  border-radius: 25px; /* تدوير الزوايا */
   margin: 10px; /* مسافة بين الرسائل */
   display: inline-block; /* لجعل العرض يتكيف مع المحتوى */
   max-width: 80%; /* أقصى عرض */
