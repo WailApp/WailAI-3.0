@@ -44,25 +44,69 @@ const createMessageElement = (content, ...classes) => {
 
 // عرض تأثير الكتابة بإظهار الكلمات واحدة تلو الأخرى
 const showTypingEffect = (text, textElement, incomingMessageDiv) => {
-  // تقسيم النص إلى كلمات بناءً على المسافات
   const words = text.split(' ');
   let currentWordIndex = 0;
+  let currentCharIndex = 0;
+  let inCodeBlock = false;
+  let codeContent = '';
+  let codeLanguage = '';
 
-  // استخدام innerHTML لضمان تفسير الكود بشكل صحيح
-  text = text.replace(/```(.*?)```/g, '<span class="code-block">$1</span>');
-  const typingInterval = setInterval(() => {
-    textElement.innerHTML += (currentWordIndex === 0 ? '' : ' ') + words[currentWordIndex++];
-    incomingMessageDiv.querySelector(".icon").classList.add("hide");
-
-    if (currentWordIndex === words.length) {
+  const typeNextChar = () => {
+    if (currentWordIndex >= words.length) {
       clearInterval(typingInterval);
       isResponseGenerating = false;
       incomingMessageDiv.querySelector(".icon").classList.remove("hide");
       localStorage.setItem("saved-chats", chatContainer.innerHTML); // حفظ الدردشات في localStorage
+      Prism.highlightAll(); // تطبيق تلوين الصيغة بعد الانتهاء
+      return;
     }
-    chatContainer.scrollTo(0, chatContainer.scrollHeight);
-  }, 75);
+
+    const currentWord = words[currentWordIndex];
+    const currentChar = currentWord[currentCharIndex];
+
+    if (currentChar === undefined) {
+      currentCharIndex = 0;
+      currentWordIndex++;
+      textElement.innerHTML += ' ';
+      setTimeout(typeNextChar, 75); // انتظار قبل كتابة الحرف التالي
+      return;
+    }
+
+    if (currentChar === '`') {
+      if (currentWord.slice(currentCharIndex).startsWith('```') && !inCodeBlock) {
+        inCodeBlock = true;
+        codeLanguage = currentWord.slice(currentCharIndex + 3).split('\n')[0].trim(); // تحديد لغة البرمجة
+        textElement.classList.add('code-block');
+        textElement.innerHTML += `<pre><code class="language-${codeLanguage}">`;
+        currentCharIndex += 3; // تجاوز ```
+      } else if (currentWord.slice(currentCharIndex).startsWith('```') && inCodeBlock) {
+        inCodeBlock = false;
+        textElement.innerHTML += Prism.highlight(codeContent, Prism.languages[codeLanguage] || Prism.languages.javascript, codeLanguage);
+        textElement.innerHTML += `</code></pre>`;
+        codeContent = '';
+        currentCharIndex += 3; // تجاوز ```
+      } else {
+        if (inCodeBlock) {
+          codeContent += currentChar;
+        } else {
+          textElement.innerHTML += currentChar;
+        }
+      }
+    } else {
+      if (inCodeBlock) {
+        codeContent += currentChar;
+      } else {
+        textElement.innerHTML += currentChar;
+      }
+    }
+
+    currentCharIndex++;
+    setTimeout(typeNextChar, 50); // سرعة ظهور الحرف
+  };
+
+  const typingInterval = setInterval(typeNextChar, 75);
 };
+
 
 // جلب الرد من API بناءً على رسالة المستخدم
 const generateAPIResponse = async (incomingMessageDiv) => {
