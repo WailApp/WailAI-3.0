@@ -243,6 +243,7 @@ body.hide-header .header2 {
 .chat-list .message .text {
   color: var(--text-color);
   white-space: pre-wrap;
+  margin: 5px;
 }
 
 .chat-list .message.error .text {
