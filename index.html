@@ -155,7 +155,8 @@ document.getElementById('copy').addEventListener('click', () => {
             errorMessageDiv.className = 'error-message';
             errorMessageDiv.innerHTML = `
                 <span class="error-text">Copied to clipboard.</span>
-                <button class="error-button" onclick="window.location.href='login.html'">Login</button>
+                <button class="error-close-button" onclick="this.parentElement.remove()">×</button>
+            
             `;
 
             // إضافة الرسالة إلى الصفحة
