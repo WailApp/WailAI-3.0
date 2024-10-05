@@ -44,11 +44,12 @@ const createMessageElement = (content, ...classes) => {
 
 // عرض تأثير الكتابة بإظهار الكلمات واحدة تلو الأخرى
 const showTypingEffect = (text, textElement, incomingMessageDiv) => {
-  const words = text.split(' '); // تقسيم النص الى كلمات بناءً على المسافات
+  // تقسيم النص إلى كلمات بناءً على المسافات
+  const words = text.split(' ');
   let currentWordIndex = 0;
 
-  // إذا كان النص يحتوي على علامة كود، يتم تغييره لتنسيق الكود
-  text = text.replace(/```(.*?)```/g, '<code>$1</code>'); // هذا السطر يقوم بتغليف الكود بعلامة <code>
+  // استخدام innerHTML لضمان تفسير الكود بشكل صحيح
+  text = text.replace(/```(.*?)```/g, '<span class="code-block">$1</span>');
 
   const typingInterval = setInterval(() => {
     textElement.innerHTML += (currentWordIndex === 0 ? '' : ' ') + words[currentWordIndex++];
@@ -63,7 +64,6 @@ const showTypingEffect = (text, textElement, incomingMessageDiv) => {
     chatContainer.scrollTo(0, chatContainer.scrollHeight);
   }, 75);
 };
-
 
 // جلب الرد من API بناءً على رسالة المستخدم
 const generateAPIResponse = async (incomingMessageDiv) => {
