@@ -148,6 +148,12 @@
         const inputField = document.querySelector('.typing-input');
         inputField.select();
         document.execCommand('copy');
+      const errorMessageDiv = document.createElement('div');
+        errorMessageDiv.className = 'error-message';
+        errorMessageDiv.innerHTML = `
+            <span class="error-text">Copied to clipboard.</span>
+            <button class="error-button" onclick="window.location.href='login.html'">Login</button>
+        `;
     });
 
     document.getElementById('select-all').addEventListener('click', () => {
