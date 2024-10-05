@@ -27,6 +27,7 @@
   <script src="data.js" defer></script>
   <script src="auth-check.js" defer></script>
   <script type="importmap"></script>
+  <link rel="manifest" href="manifest.json">
 </head>
 <body>
   <header class="header">
@@ -49,6 +50,30 @@
       window.location.href = 'unsupported-browser.html';
     } else {
       console.log('المتصفح مدعوم للخدمات الجديدة والإشعارات.');
+    }
+    // منع المستخدم من تحديد النص في الصفحة
+document.addEventListener('selectstart', (event) => {
+  event.preventDefault();
+});
+    self.addEventListener('install', (event) => {
+  console.log('Service worker installed');
+});
+
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request);
+    })
+  );
+});
+    if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js').then((registration) => {
+      console.log('Service Worker registered with scope: ', registration.scope);
+    }).catch((error) => {
+      console.log('Service Worker registration failed: ', error);
+    });
+  });
     }
   </script>
   
