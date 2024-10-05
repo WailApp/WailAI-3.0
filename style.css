@@ -178,7 +178,14 @@ body.hide-header .header2 {
   background: var(--secondary-color);
   transition: 0.2s ease;
 }
-
+.code-block {
+  font-family: 'Courier New', Courier, monospace; /* تغيير الخط إلى خط مخصص للكود */
+  background-color: #f4f4f4;
+  padding: 2px 4px;
+  border-radius: 3px;
+  color: #d32f2f;
+  display: inline-block;
+}
 .suggestion-list .suggestion:hover {
   background: var(--secondary-hover-color);
 }
