@@ -224,14 +224,14 @@ body.hide-header .header2 {
   display: flex;
   gap: 1.5rem;
   width: 100%;
-  align-items: center;
+  align-items: right;
 }
 
 chat-list .message .message-content2 {
   display: flex;
   gap: 1.5rem;
   width: 100%;
-  align-items: center;
+  align-items: left;
   background: var(--primary-color);
   border-radius: 100%;
 }
