@@ -1,11 +1,11 @@
 {
   "name": "WailAI",
   "short_name": "WailAI",
-  "description": "Progressive Web App for WailAI",
+  "description": "Because you can install the WailAI application on any device and it is very small in size.",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "theme_color": "#0068ff",
   "icons": [
     {
       "src": "/icon.svg",
