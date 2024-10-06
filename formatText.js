@@ -1,24 +1,23 @@
-function formatText() {
-  const contentDiv = document.getElementById('text');
-  if (contentDiv) {
-    let text = contentDiv.innerText;  // الحصول على النص الخام
+    function formatText() {
+      // الحصول على كل محتويات الصفحة
+      const bodyContent = document.body;
 
-    // كشف النصوص الغامقة والمائلة (***)
-    text = text.replace(/\*\*\*(.*?)\*\*\*/g, '<span class="bold italic">$1</span>');
-    
-    // كشف النصوص الغامقة (**)
-    text = text.replace(/\*\*(.*?)\*\*/g, '<span class="bold">$1</span>');
-    
-    // كشف النصوص المائلة (*)
-    text = text.replace(/\*(.*?)\*/g, '<span class="italic">$1</span>');
-    
-    // كشف الأكواد (```)
-    text = text.replace(/```(.*?)```/g, '<span class="code">$1</span>');
+      if (bodyContent) {
+        let text = bodyContent.innerHTML;  // الحصول على المحتوى كـ HTML
 
-    // تحديث محتوى div بالنص المحدث
-    contentDiv.innerHTML = text;
-  }
-}
+        // كشف النصوص الغامقة والمائلة (***)
+        text = text.replace(/\*\*\*(.*?)\*\*\*/g, '<span class="bold italic">$1</span>');
+        
+        // كشف النصوص الغامقة (**)
+        text = text.replace(/\*\*(.*?)\*\*/g, '<span class="bold">$1</span>');
+        
+        // كشف النصوص المائلة (*)
+        text = text.replace(/\*(.*?)\*/g, '<span class="italic">$1</span>');
+        
+        // كشف الأكواد (```)
+        text = text.replace(/```(.*?)```/g, '<span class="code">$1</span>');
 
-// استدعاء الدالة عند تحميل الصفحة
-window.onload = formatText;
+        // تحديث محتوى الصفحة بالكامل بالنص المحدث
+        bodyContent.innerHTML = text;
+      }
+    }
