@@ -91,7 +91,6 @@ self.addEventListener('fetch', (event) => {
     }
 
   </script>
-  <div id="content">
   <!-- Main Content -->
   <main class="main-content">
     <header class="header2">
@@ -174,7 +173,6 @@ self.addEventListener('fetch', (event) => {
         <li id="copy"><span class="icon material-symbols-rounded"></span>Copy All</li>
     </ul>
   </div>
-  </div>
 
   <script src="script.js"></script>
   <script>
@@ -234,7 +232,7 @@ document.querySelector('.settings-chat-button').addEventListener('click', () => 
   
       <script>
     function formatText() {
-      const contentDiv = document.getElementById('content');
+      const contentDiv = document.getElementById('main-content');
       let text = contentDiv.innerText;  // الحصول على النص الخام
 
       // كشف النصوص الغامقة والمائلة (***)
