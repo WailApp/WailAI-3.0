@@ -1,5 +1,5 @@
 function formatText() {
-  const contentDiv = document.getElementById('message-content2');
+  const contentDiv = document.getElementById('test');
   if (contentDiv) {
     let text = contentDiv.innerText;  // الحصول على النص الخام
 
