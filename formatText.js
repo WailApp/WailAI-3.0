@@ -13,7 +13,7 @@ function formatText() {
     text = text.replace(/\*(.*?)\*/g, '<span class="italic">$1</span>');
     
     // كشف الأكواد (```)
-    text = text.replace(/`(.*?)`/g, '<span class="code">$1</span>');
+    text = text.replace(/```(.*?)```/g, '<span class="code">$1</span>');
 
     // تحديث محتوى div بالنص المحدث
     contentDiv.innerHTML = text;
