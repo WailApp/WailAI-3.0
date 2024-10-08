@@ -87,6 +87,7 @@ let apiResponse = data?.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*
 apiResponse = apiResponse.replace(/جوجل/gi, "W𝗜𝗡𝗖");
 apiResponse = apiResponse.replace(/google/gi, "W𝗜𝗡𝗖");
 apiResponse = apiResponse.replace(/Gemini/gi, "WailΛI");
+apiResponse = apiResponse.replace(/```/gi, "");
 
 // إذا كان النص يحتوي على كود ``` 
 if (apiResponse.includes('```')) {
