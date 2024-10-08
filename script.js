@@ -84,7 +84,10 @@ const generateAPIResponse = async (incomingMessageDiv) => {
     apiResponse = apiResponse.replace(/جوجل/gi, "W𝗜𝗡𝗖");
     apiResponse = apiResponse.replace(/google/gi, "W𝗜𝗡𝗖");
     apiResponse = apiResponse.replace(/Gemini/gi, "WailΛI");
-
+if (apiResponse.startsWith('```')) {
+    // تطبيق كود CSS لتغيير الخط
+    apiResponse = `<span class="code-block">${apiResponse}</span>`;
+}
     showTypingEffect(apiResponse, textElement, incomingMessageDiv);
   } catch (error) {
     isResponseGenerating = false;
