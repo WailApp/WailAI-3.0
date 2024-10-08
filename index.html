@@ -6,7 +6,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>WailAI</title>
-  <style>
+      <script>
+        // تحديد دالة لتحذير المستخدم
+        function showAlert() {
+            alert("لا يمكنك اختراقنا!"); // الرسالة التي تظهر للمستخدم
+        }
+
+        // الكشف عن فتح أدوات المطور
+        const devToolsOpen = () => {
+            const threshold = 160; // تحديد القيمة العليا
+            const start = performance.now();
+            debugger; // هذا السطر سيوقف التنفيذ حتى يتم فتح الكونسول
+
+            const checkDevTools = setInterval(() => {
+                const end = performance.now();
+                if (end - start > threshold) {
+                    clearInterval(checkDevTools);
+                    showAlert(); // استدعاء دالة التحذير
+                }
+            }, 1000);
+        };
+
+        // إضافة حدث عند تحميل الصفحة
+        window.addEventListener('load', devToolsOpen);
+      </script>
   <style>
     body {
       height: 1500px; /* زيادة ارتفاع الصفحة للتجربة */
