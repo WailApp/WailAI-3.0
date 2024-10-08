@@ -81,9 +81,9 @@ const generateAPIResponse = async (incomingMessageDiv) => {
     if (!response.ok) throw new Error(data.error.message);
 
     let apiResponse = data?.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, '$1');
-    apiResponse = apiResponse.replace(/جوجل/gi, "WailTech");
-    apiResponse = apiResponse.replace(/google/gi, "WailTech");
-    apiResponse = apiResponse.replace(/Gemini/gi, "WailAI");
+    apiResponse = apiResponse.replace(/جوجل/gi, "W𝗜𝗡𝗖");
+    apiResponse = apiResponse.replace(/google/gi, "W𝗜𝗡𝗖");
+    apiResponse = apiResponse.replace(/Gemini/gi, "WailΛI");
 
     showTypingEffect(apiResponse, textElement, incomingMessageDiv);
   } catch (error) {
