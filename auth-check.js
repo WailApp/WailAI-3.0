@@ -52,7 +52,7 @@ window.auth.onAuthStateChanged(user => {
                             handleOutgoingChat();
                         } else {
                             console.log('User does not have a valid subscription or the subscription has expired.');
-                            if (messageCount >= 20) {
+                            if (messageCount >= 5) {
                                 // لا تقم بإرسال الرسالة
                                 displayErrorMessage("You have reached the message limit for non-subscribed users.");
                             } else {
