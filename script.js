@@ -97,7 +97,7 @@ if (apiResponse.includes('```')) {
     apiResponse = parts.map((part, index) => {
         // إذا كانت جزء الكود (أجزاء غير نصية) 
         if (index % 2 !== 0) {
-            return `<span class="code-block">${message}</span>`;
+            return `<span class="code-block">${text}</span>`;
         }
         // النص العادي
         return part;
