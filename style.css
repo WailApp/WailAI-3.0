@@ -229,11 +229,22 @@ body.hide-header .header2 {
 .chat-list .message.incoming {
   margin-top: 1.5rem;
 }
-
+@keyframes fadeInMessage {
+  from {
+    opacity: 0;
+    transform: translateY(10px); /* تحريك النص قليلاً للأسفل */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* النص يعود لمكانه الأصلي */
+  }
+}
 .chat-list .message .message-content {
   display: flex;
   gap: 1.5rem;
   width: 100%;
+  opacity: 0; /* البداية عند عدم ظهور */
+  animation: fadeInMessage 0.5s ease forwards;
   align-items: center; /* تعديل: يجب استخدام center بدلاً من left ليتم توسيط العناصر */
   background-color: var(--primary-color); /* تعديل: استخدام backgroundColor بدلاً من background */
   border-radius: 10px; /* تعديل: تقليل قيمة border-radius لتناسب الشكل المطلوب */
