@@ -78,12 +78,13 @@ const generateAPIResponse = async (incomingMessageDiv) => {
     });
 
     const data = await response.json();
+const data = await response.json();
 if (!response.ok) throw new Error(data.error.message);
 
 // استرجاع النص من الاستجابة
 let apiResponse = data?.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, '$1');
 
-// تغيير النص حسب المطلوب
+// تغيير الكلمات حسب المطلوب
 apiResponse = apiResponse.replace(/جوجل/gi, "W𝗜𝗡𝗖");
 apiResponse = apiResponse.replace(/google/gi, "W𝗜𝗡𝗖");
 apiResponse = apiResponse.replace(/Gemini/gi, "WailΛI");
@@ -95,14 +96,16 @@ if (apiResponse.includes('```')) {
     apiResponse = parts.map((part, index) => {
         // إذا كانت جزء الكود (أجزاء غير نصية) 
         if (index % 2 !== 0) {
-            return `<span class="code-block">${part}</span>`;
+            return `<span class="code-block">${message}</span>`;
         }
         // النص العادي
         return part;
     }).join('');
 }
 
-    Prism.highlightAll();
+
+// تطبيق Prism.js لتلوين الكود (إذا لزم الأمر)
+Prism.highlightAll();
     showTypingEffect(apiResponse, textElement, incomingMessageDiv);
   } catch (error) {
     isResponseGenerating = false;
