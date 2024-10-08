@@ -78,16 +78,33 @@ const generateAPIResponse = async (incomingMessageDiv) => {
     });
 
     const data = await response.json();
-    if (!response.ok) throw new Error(data.error.message);
+if (!response.ok) throw new Error(data.error.message);
 
-    let apiResponse = data?.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, '$1');
-    apiResponse = apiResponse.replace(/جوجل/gi, "W𝗜𝗡𝗖");
-    apiResponse = apiResponse.replace(/google/gi, "W𝗜𝗡𝗖");
-    apiResponse = apiResponse.replace(/Gemini/gi, "WailΛI");
-if (apiResponse.startsWith('```')) {
-    // تطبيق كود CSS لتغيير الخط
-    apiResponse = `<span class="code-block">${apiResponse}</span>`;
+// استرجاع النص من الاستجابة
+let apiResponse = data?.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, '$1');
+
+// تغيير النص حسب المطلوب
+apiResponse = apiResponse.replace(/جوجل/gi, "W𝗜𝗡𝗖");
+apiResponse = apiResponse.replace(/google/gi, "W𝗜𝗡𝗖");
+apiResponse = apiResponse.replace(/Gemini/gi, "WailΛI");
+
+// إذا كان النص يحتوي على كود ``` 
+if (apiResponse.includes('```')) {
+    // تقسيم النص إلى أجزاء للتعامل مع كتل الكود
+    const parts = apiResponse.split(/```(.*?)```/g);
+    apiResponse = parts.map((part, index) => {
+        // إذا كانت جزء الكود (أجزاء غير نصية) 
+        if (index % 2 !== 0) {
+            return `<span class="code-block">${part}</span>`;
+        }
+        // النص العادي
+        return part;
+    }).join('');
 }
+
+// إدراج النص في العنصر المناسب
+textElement.innerHTML += apiResponse;
+    
     showTypingEffect(apiResponse, textElement, incomingMessageDiv);
   } catch (error) {
     isResponseGenerating = false;
