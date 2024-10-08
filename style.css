@@ -229,15 +229,24 @@ body.hide-header .header2 {
 .chat-list .message.incoming {
   margin-top: 1.5rem;
 }
-@keyframes fadeInMessage {
+
+@keyframes slideIn {
   from {
     opacity: 0;
-    transform: translateY(10px); /* تحريك النص قليلاً للأسفل */
+    transform: translateY(20px); /* التحرك للأسفل عند الظهور */
   }
   to {
     opacity: 1;
-    transform: translateY(0); /* النص يعود لمكانه الأصلي */
+    transform: translateY(0); /* العودة إلى الموضع الأصلي */
   }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
 }
 .chat-list .message .message-content {
   display: flex;
