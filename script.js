@@ -102,8 +102,6 @@ if (apiResponse.includes('```')) {
     }).join('');
 }
 
-// إدراج النص في العنصر المناسب
-textElement.innerHTML += apiResponse;
     
     showTypingEffect(apiResponse, textElement, incomingMessageDiv);
   } catch (error) {
