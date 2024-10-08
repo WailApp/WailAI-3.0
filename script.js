@@ -102,7 +102,7 @@ if (apiResponse.includes('```')) {
     }).join('');
 }
 
-    
+    Prism.highlightAll();
     showTypingEffect(apiResponse, textElement, incomingMessageDiv);
   } catch (error) {
     isResponseGenerating = false;
