@@ -154,7 +154,7 @@ const checkSubscriptionAndHandleOutgoingChat = async () => {
         handleOutgoingChat();
       } else {
         console.log('No subscription');
-        if (messageCount >= 20) {
+        if (messageCount >= 5) {
           displayErrorMessage("Stop! Your free period has expired.");
           isResponseGenerating = false;
           sendMessageButton.disabled = true;
