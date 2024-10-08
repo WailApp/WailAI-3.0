@@ -88,6 +88,7 @@ apiResponse = apiResponse.replace(/جوجل/gi, "W𝗜𝗡𝗖");
 apiResponse = apiResponse.replace(/google/gi, "W𝗜𝗡𝗖");
 apiResponse = apiResponse.replace(/Gemini/gi, "WailΛI");
 apiResponse = apiResponse.replace(/```/gi, "");
+apiResponse = apiResponse.replace(/Code/gi, "𝙲𝚘𝚍𝚎");
 
 // إذا كان النص يحتوي على كود ``` 
 if (apiResponse.includes('```')) {
