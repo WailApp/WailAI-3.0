@@ -180,6 +180,8 @@ body.hide-header .header2 {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
+  text-align: center;
+  justify-content: center;
 }
 
 .suggestion-list .suggestion {
@@ -194,6 +196,8 @@ body.hide-header .header2 {
   justify-content: space-between;
   background: var(--secondary-color);
   transition: 0.2s ease;
+  text-align: center;
+  justify-content: center;
 }
 .code-block {
   font-family: 'Courier New', Courier, monospace; /* تغيير الخط إلى خط مخصص للكود */
@@ -220,6 +224,8 @@ body.hide-header .header2 {
   margin-top: 2.5rem;
   align-self: flex-end;
   border-radius: 50%;
+  text-align: center;
+  justify-content: center;
   color: var(--text-color);
   background: var(--primary-color);
 }
