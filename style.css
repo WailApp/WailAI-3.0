@@ -43,8 +43,8 @@
 
 .logo-container2 {
   display: flex;
-  align-items: left;
-  justify-content: left;
+  align-items: center;
+  justify-content: center;
 }
 .message-content2 {
   background-color: var(--secondary-color); /* لون الخلفية */
