@@ -158,6 +158,8 @@ body.hide-header .header2 {
 }
 
 .header2 .title {
+  text-align: center;
+  justify-content: center;
   width: fit-content;
   margin-left: 10px;
   font-size: 3rem;
@@ -211,6 +213,8 @@ body.hide-header .header2 {
   display: inline-block;
 }
 .suggestion-list .suggestion:hover {
+  text-align: center;
+  justify-content: center;
   background: var(--secondary-hover-color);
 }
 
