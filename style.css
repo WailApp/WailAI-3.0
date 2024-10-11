@@ -11,6 +11,7 @@
   margin-top: 10px;
   padding: 1rem;
   text-align: center;
+  justify-content: center;
   background-color: var(--primary-color);
 }
 /* Existing CSS remains unchanged */
@@ -89,8 +90,10 @@
 }
 
 .code-container {
-            position: relative;
-            margin: 1rem 0;
+        position: relative;
+        margin: 1rem 0;
+	align-items: center;
+	justify-content: center;
 }
 :root {
   /* Dark mode colors */
@@ -129,11 +132,12 @@ body {
 }
 
 .header2 {
-  justify-content: center;
+  display: flex;
+  justify-content: center; /* لنجعل المحتوى في الوسط أفقياً */
+  align-items: center;     /* لنجعل المحتوى في الوسط عمودياً */
+  height: 100vh;           /* لجعل الحاوية تمتد بطول الصفحة */
   margin-top: 6vh;
-  align-items: center;
   padding: 1rem;
-  overflow-x: hidden;
 }
 
 body.hide-header .header2 {
