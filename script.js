@@ -180,7 +180,7 @@ const displayErrorMessage = (message) => {
 
   errorMessageDiv.innerHTML = `
     <span class="error-text">${message}</span>
-    <button class="error-button" onclick="window.location.href='update.html'">Get Pro</button>
+    <button class="error-button" onclick="window.location.href='purchase.html'">Get Plus</button>
     <button class="error-close-button" onclick="this.parentElement.remove()">×</button>
   `;
 
