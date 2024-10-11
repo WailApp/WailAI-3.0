@@ -92,8 +92,6 @@
 .code-container {
         position: relative;
         margin: 1rem 0;
-	align-items: center;
-	justify-content: center;
 }
 :root {
   /* Dark mode colors */
@@ -140,8 +138,6 @@ body {
 }
 
 body.hide-header .header2 {
-  align-items: center;
-  justify-content: center;
   margin: 0;
   display: none;
 }
@@ -158,8 +154,6 @@ body.hide-header .header2 {
 }
 
 .header2 .title {
-  justify-content: center;
-  text-align: center;
   width: fit-content;
   margin-left: 10px;
   font-size: 3rem;
@@ -224,9 +218,7 @@ body.hide-header .header2 {
   font-size: 1.3rem;
   margin-top: 2.5rem;
   align-self: flex-end;
-  align-items: center;
   border-radius: 50%;
-  justify-content: center;
   color: var(--text-color);
   background: var(--primary-color);
 }
