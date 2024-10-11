@@ -145,6 +145,7 @@ body.hide-header .header2 {
   font-weight: 500;
   line-height: 4rem;
   font-style: Bold;
+  text-align: center;
 }
 
 .header2 .title {
