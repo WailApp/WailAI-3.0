@@ -149,6 +149,7 @@ body.hide-header .header2 {
 }
 
 .header2 .title {
+text-align: center;
   width: fit-content;
   margin-left: 10px;
   font-size: 3rem;
