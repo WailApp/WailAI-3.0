@@ -129,11 +129,13 @@ body {
 
 .header2 {
   margin-top: 6vh;
+  align-items: center;
   padding: 1rem;
   overflow-x: hidden;
 }
 
 body.hide-header .header2 {
+  align-items: center;
   margin: 0;
   display: none;
 }
