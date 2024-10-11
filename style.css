@@ -214,6 +214,8 @@ body.hide-header .header2 {
 .suggestion-list .suggestion :where(.text, .icon) {
   font-weight: 400;
   color: var(--text-color);
+  text-align: center;
+  justify-content: center;
 }
 
 .suggestion-list .suggestion .icon {
