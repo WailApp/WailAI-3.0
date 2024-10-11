@@ -132,7 +132,6 @@ body {
 }
 
 .header2 {
-  display: flex;
   justify-content: center; /* لنجعل المحتوى في الوسط أفقياً */
   align-items: center;     /* لنجعل المحتوى في الوسط عمودياً */
   height: 100vh;           /* لجعل الحاوية تمتد بطول الصفحة */
