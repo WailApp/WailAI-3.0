@@ -265,11 +265,11 @@ document.querySelector('.settings-chat-button').addEventListener('click', () => 
   // تتبع موضع التمرير السابق
   let lastScrollPosition = window.scrollY;
 
-  // وظيفة استماع على التمرير
+  // دالة التحقق من التمرير
   window.addEventListener("scroll", function() {
     let currentScrollPosition = window.scrollY;
 
-    // إذا كان المستخدم يتمرر لأعلى، إظهار السهم دائمًا
+    // إذا كان المستخدم يتمرر لأعلى، إظهار السهم
     if (currentScrollPosition < lastScrollPosition) {
       scrollArrow.style.display = "block"; // إظهار السهم
     }
@@ -278,10 +278,10 @@ document.querySelector('.settings-chat-button').addEventListener('click', () => 
     lastScrollPosition = currentScrollPosition;
   });
 
-  // عند الضغط على السهم، الانتقال لأسفل الصفحة
+  // عند الضغط على السهم، الانتقال لنهاية الصفحة
   scrollArrow.addEventListener("click", function() {
     window.scrollTo({
-      top: document.body.scrollHeight, // الانتقال لنهاية الصفحة
+      top: document.body.scrollHeight, // الانتقال إلى أسفل الصفحة
       behavior: "smooth" // الانتقال بطريقة ناعمة
     });
   });
