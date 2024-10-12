@@ -262,17 +262,23 @@ document.querySelector('.settings-chat-button').addEventListener('click', () => 
   // استهداف السهم
   const scrollDownArrow = document.getElementById("scrollDownArrow");
 
+  // متغير لتتبع آخر موضع تمرير
+  let lastScrollY = window.scrollY;
+
   // وظيفة التحقق من التمرير
   function handleScroll() {
     const scrolled = window.scrollY; // مقدار التمرير العمودي
     const maxScroll = document.documentElement.scrollHeight - window.innerHeight; // أقصى قيمة للتمرير
 
-    // إذا تجاوز المستخدم 200px في التمرير ولم يصل إلى النهاية
-    if (scrolled > 200 && scrolled < maxScroll - 100) {
+    // إذا كان المستخدم يتمرر لأعلى (صعود) أو إذا كان في الأعلى
+    if (scrolled < lastScrollY && scrolled > 200) {
       scrollDownArrow.style.display = "block"; // إظهار السهم
     } else {
-      scrollDownArrow.style.display = "none"; // إخفاء السهم إذا كان في الأعلى أو الأسفل
+      scrollDownArrow.style.display = "none"; // إخفاء السهم إذا كان يتمرر لأسفل أو في النهاية
     }
+
+    // تحديث آخر موضع تمرير
+    lastScrollY = scrolled;
   }
 
   // إضافة استماع على التمرير
@@ -289,5 +295,6 @@ document.querySelector('.settings-chat-button').addEventListener('click', () => 
   // تأكد من استدعاء وظيفة الفحص عند التحميل لأول مرة
   handleScroll();
       </script>
+  
 </body>
 </html>
