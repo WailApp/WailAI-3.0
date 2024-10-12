@@ -258,7 +258,7 @@ document.querySelector('.settings-chat-button').addEventListener('click', () => 
 });
 
   </script>
-<script>
+  <script>
   // استهداف السهم
   const scrollDownArrow = document.getElementById("scrollDownArrow");
 
@@ -269,11 +269,11 @@ document.querySelector('.settings-chat-button').addEventListener('click', () => 
   function handleScroll() {
     const currentScrollY = window.scrollY; // مقدار التمرير الحالي
 
-    // إذا كان المستخدم يتمرر لأعلى (صعود) ويكون قد تجاوز 100 بكسل من الصفحة
-    if (currentScrollY < lastScrollY && currentScrollY > 100) {
+    // إذا كان المستخدم يتمرر لأعلى (صعود)
+    if (currentScrollY < lastScrollY) {
       scrollDownArrow.style.display = "block"; // إظهار السهم
     } else {
-      scrollDownArrow.style.display = "none"; // إخفاء السهم إذا كان يتمرر لأسفل أو في الأعلى
+      scrollDownArrow.style.display = "none"; // إخفاء السهم إذا كان يتمرر لأسفل
     }
 
     // تحديث آخر موضع تمرير
@@ -293,7 +293,7 @@ document.querySelector('.settings-chat-button').addEventListener('click', () => 
 
   // تأكد من استدعاء وظيفة الفحص عند التحميل لأول مرة
   handleScroll();
-</script>
+  </script>
   
   
 </body>
