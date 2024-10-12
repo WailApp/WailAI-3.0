@@ -351,9 +351,9 @@ body.hide-header .header2 {
 }
 
 .typing-area {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 16px rgba(0, 0, 0, 0.3);
   padding: 10px;  /* مسافة داخلية لضمان وجود مساحة كافية للنص */
-  border-radius: 8px;
+  border-radius: 12px;
   position: fixed;
   width: 100%;
   left: 0;
