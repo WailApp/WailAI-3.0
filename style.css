@@ -221,6 +221,7 @@ body.hide-header .header2 {
 }
 
 .chat-list {
+  position: relative;
   padding: 2rem 1rem 12rem;
   max-height: 100vh;
   overflow-y: auto;
