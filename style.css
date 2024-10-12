@@ -459,7 +459,7 @@ body.hide-header .header2 {
   transform: scale(1);
 }
 
-.typing-area .disclaimer-text {
+.disclaimer-text {
   text-align: center;
   font-size: 0.85rem;
   margin-top: 1rem;
