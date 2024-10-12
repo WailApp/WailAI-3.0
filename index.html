@@ -259,25 +259,35 @@ document.querySelector('.settings-chat-button').addEventListener('click', () => 
 
   </script>
       <script>
-    // استهداف السهم
-    const scrollDownArrow = document.getElementById("scrollDownArrow");
+  // استهداف السهم
+  const scrollDownArrow = document.getElementById("scrollDownArrow");
 
-    // إضافة استماع على التمرير
-    window.onscroll = function() {
-      if (window.scrollY > 100) { // إذا تجاوز المستخدم 200px في التمرير
-        scrollDownArrow.style.display = "block"; // إظهار السهم
-      } else {
-        scrollDownArrow.style.display = "none"; // إخفاء السهم إذا رجع المستخدم للأعلى
-      }
-    };
+  // وظيفة التحقق من التمرير
+  function handleScroll() {
+    const scrolled = window.scrollY; // مقدار التمرير العمودي
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight; // أقصى قيمة للتمرير
 
-    // عند الضغط على السهم، الانتقال للأسفل
-    scrollDownArrow.onclick = function() {
-      window.scrollTo({
-        top: document.body.scrollHeight, // الانتقال لنهاية الصفحة
-        behavior: "smooth" // حركة الانتقال تكون ناعمة
-      });
-    };
+    // إذا تجاوز المستخدم 200px في التمرير ولم يصل إلى النهاية
+    if (scrolled > 200 && scrolled < maxScroll - 100) {
+      scrollDownArrow.style.display = "block"; // إظهار السهم
+    } else {
+      scrollDownArrow.style.display = "none"; // إخفاء السهم إذا كان في الأعلى أو الأسفل
+    }
+  }
+
+  // إضافة استماع على التمرير
+  window.addEventListener("scroll", handleScroll);
+
+  // عند الضغط على السهم، الانتقال للأسفل
+  scrollDownArrow.onclick = function() {
+    window.scrollTo({
+      top: document.body.scrollHeight, // الانتقال لنهاية الصفحة
+      behavior: "smooth" // حركة الانتقال تكون ناعمة
+    });
+  };
+
+  // تأكد من استدعاء وظيفة الفحص عند التحميل لأول مرة
+  handleScroll();
       </script>
 </body>
 </html>
