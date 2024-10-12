@@ -12,7 +12,7 @@
     /* تصميم السهم */
     #scrollDownArrow {
       position: fixed;
-      bottom: 160px;
+      bottom: 135px;
       right: 20px;
       width: 50px;
       height: 50px;
@@ -276,7 +276,7 @@ document.querySelector('.settings-chat-button').addEventListener('click', () => 
 
     // إضافة استماع على التمرير
     window.onscroll = function() {
-      if (window.scrollY > 120) { // إذا تجاوز المستخدم 200px في التمرير
+      if (window.scrollY > 100) { // إذا تجاوز المستخدم 200px في التمرير
         scrollDownArrow.style.display = "block"; // إظهار السهم
       } else {
         scrollDownArrow.style.display = "none"; // إخفاء السهم إذا رجع المستخدم للأعلى
