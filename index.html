@@ -258,24 +258,20 @@ document.querySelector('.settings-chat-button').addEventListener('click', () => 
 });
 
   </script>
-  <script>
-  // الحصول على السهم
+<script>
+  // استهداف السهم
   const scrollArrow = document.getElementById("scrollDownArrow");
 
   // تتبع موضع التمرير السابق
   let lastScrollPosition = window.scrollY;
 
-  // دالة التمرير
+  // وظيفة استماع على التمرير
   window.addEventListener("scroll", function() {
     let currentScrollPosition = window.scrollY;
 
-    // إذا كان المستخدم يتمرر لأعلى
+    // إذا كان المستخدم يتمرر لأعلى، إظهار السهم دائمًا
     if (currentScrollPosition < lastScrollPosition) {
       scrollArrow.style.display = "block"; // إظهار السهم
-    } 
-    // إذا كان المستخدم يتمرر لأسفل
-    else {
-      scrollArrow.style.display = "none"; // إخفاء السهم
     }
 
     // تحديث آخر موضع تمرير
@@ -289,7 +285,6 @@ document.querySelector('.settings-chat-button').addEventListener('click', () => 
       behavior: "smooth" // الانتقال بطريقة ناعمة
     });
   });
-  </script>
-  
+</script>
 </body>
 </html>
