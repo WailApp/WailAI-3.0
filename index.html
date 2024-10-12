@@ -258,33 +258,38 @@ document.querySelector('.settings-chat-button').addEventListener('click', () => 
 });
 
   </script>
+
 <script>
   // استهداف السهم
   const scrollArrow = document.getElementById("scrollDownArrow");
+  const chatList = document.querySelector(".chat-list"); // استهداف عنصر المحادثات
 
   // تتبع موضع التمرير السابق
-  let lastScrollPosition = window.scrollY;
+  let lastScrollPosition = chatList.scrollTop;
 
   // دالة التحقق من التمرير
-  window.addEventListener("scroll", function() {
-    let currentScrollPosition = window.scrollY;
+  chatList.addEventListener("scroll", function() {
+    let currentScrollPosition = chatList.scrollTop; // موضع التمرير الحالي داخل chat-list
 
     // إذا كان المستخدم يتمرر لأعلى، إظهار السهم
     if (currentScrollPosition < lastScrollPosition) {
       scrollArrow.style.display = "block"; // إظهار السهم
+    } else {
+      scrollArrow.style.display = "none"; // إخفاء السهم إذا كان يتمرر لأسفل
     }
 
     // تحديث آخر موضع تمرير
     lastScrollPosition = currentScrollPosition;
   });
 
-  // عند الضغط على السهم، الانتقال لنهاية الصفحة
+  // عند الضغط على السهم، الانتقال لنهاية المحادثات
   scrollArrow.addEventListener("click", function() {
-    window.scrollTo({
-      top: document.body.scrollHeight, // الانتقال إلى أسفل الصفحة
+    chatList.scrollTo({
+      top: chatList.scrollHeight, // الانتقال إلى أسفل chat-list
       behavior: "smooth" // الانتقال بطريقة ناعمة
     });
   });
 </script>
+  
 </body>
 </html>
