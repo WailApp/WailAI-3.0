@@ -354,9 +354,12 @@ body.hide-header .header2 {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
   padding: 10px;  /* مسافة داخلية لضمان وجود مساحة كافية للنص */
   border-radius: 20px;
+  position: fixed;
   width: 100%;
+  left: 0;
+  bottom: 0;
   padding: 1rem;
-  margin: 10px;
+  margin-bottom: 10px;
   background: var(--primary-color);
 }
 
@@ -512,4 +515,4 @@ body.hide-header .header2 {
   font-size: 30px;
   color: #0021ff;
   }
-	  }
+	}
