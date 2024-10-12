@@ -259,42 +259,37 @@ document.querySelector('.settings-chat-button').addEventListener('click', () => 
 
   </script>
   <script>
-  // استهداف السهم
-  const scrollDownArrow = document.getElementById("scrollDownArrow");
+  // الحصول على السهم
+  const scrollArrow = document.getElementById("scrollDownArrow");
 
-  // متغير لتتبع آخر موضع تمرير
-  let lastScrollY = window.scrollY;
+  // تتبع موضع التمرير السابق
+  let lastScrollPosition = window.scrollY;
 
-  // وظيفة التحقق من التمرير
-  function handleScroll() {
-    const currentScrollY = window.scrollY; // مقدار التمرير الحالي
+  // دالة التمرير
+  window.addEventListener("scroll", function() {
+    let currentScrollPosition = window.scrollY;
 
-    // إذا كان المستخدم يتمرر لأعلى (صعود)
-    if (currentScrollY < lastScrollY) {
-      scrollDownArrow.style.display = "block"; // إظهار السهم
-    } else {
-      scrollDownArrow.style.display = "none"; // إخفاء السهم إذا كان يتمرر لأسفل
+    // إذا كان المستخدم يتمرر لأعلى
+    if (currentScrollPosition < lastScrollPosition) {
+      scrollArrow.style.display = "block"; // إظهار السهم
+    } 
+    // إذا كان المستخدم يتمرر لأسفل
+    else {
+      scrollArrow.style.display = "none"; // إخفاء السهم
     }
 
     // تحديث آخر موضع تمرير
-    lastScrollY = currentScrollY;
-  }
+    lastScrollPosition = currentScrollPosition;
+  });
 
-  // إضافة استماع على التمرير
-  window.addEventListener("scroll", handleScroll);
-
-  // عند الضغط على السهم، الانتقال للأسفل
-  scrollDownArrow.onclick = function() {
+  // عند الضغط على السهم، الانتقال لأسفل الصفحة
+  scrollArrow.addEventListener("click", function() {
     window.scrollTo({
       top: document.body.scrollHeight, // الانتقال لنهاية الصفحة
-      behavior: "smooth" // حركة الانتقال تكون ناعمة
+      behavior: "smooth" // الانتقال بطريقة ناعمة
     });
-  };
-
-  // تأكد من استدعاء وظيفة الفحص عند التحميل لأول مرة
-  handleScroll();
+  });
   </script>
-  
   
 </body>
 </html>
