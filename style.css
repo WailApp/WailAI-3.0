@@ -351,7 +351,7 @@ body.hide-header .header2 {
 }
 
 .typing-area {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   padding: 10px;  /* مسافة داخلية لضمان وجود مساحة كافية للنص */
   border-radius: 20px;
   position: fixed;
@@ -360,8 +360,6 @@ body.hide-header .header2 {
   bottom: 0;
   padding: 1rem;
   margin-bottom: 10px;
-  margin-left: 5px;
-  margin-right: 5px;
   background: var(--primary-color);
 }
 
