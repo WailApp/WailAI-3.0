@@ -6,38 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>WailΛI</title>
-  <style>
-    body {
-
-    /* تصميم السهم */
-    #scrollDownArrow {
-      position: relative;
-      bottom: 135px;
-      right: 20px;
-      width: 50px;
-      height: 50px;
-      background-color: var(--secondary-color);
-      color: white;
-      border-radius: 30%;
-      text-align: center;
-      line-height: 50px;
-      font-size: 24px;
-      cursor: pointer;
-      color: var(--text-color);
-      display: none; /* إخفاء السهم في البداية */
-      transition: opacity 0.3s ease;
-    }
-
-    #scrollDownArrow:hover {
-      background-color: var(--secondary-color);
-    }
-
-    /* إعداد الأيقونة */
-    .material-icons {
-      font-size: 30px;
-      line-height: 50px;
-    }
-  </style>
   <!-- Linking Google Fonts For Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism.min.css" rel="stylesheet" />
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -176,9 +144,6 @@ self.addEventListener('fetch', (event) => {
         </li>
       </ul>
     </header>
-      <div id="scrollDownArrow">
-   <span id="down-button" class="icon material-symbols-rounded">arrow_downward</span>
-      </div>
     <div class="chat-list"></div>
     <!-- Typing Area -->
     <div class="typing-area">
