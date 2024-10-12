@@ -351,6 +351,9 @@ body.hide-header .header2 {
 }
 
 .typing-area {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* إضافة ظل خفيف */
+  padding: 10px;  /* مسافة داخلية لضمان وجود مساحة كافية للنص */
+  border-radius: 8px;
   position: fixed;
   width: 100%;
   left: 0;
