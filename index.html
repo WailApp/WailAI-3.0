@@ -16,19 +16,20 @@
       right: 20px;
       width: 50px;
       height: 50px;
-      background-color: #007bff;
+      background-color: var(--secondary-color);
       color: white;
-      border-radius: 20%;
+      border-radius: 25%;
       text-align: center;
       line-height: 50px;
       font-size: 24px;
       cursor: pointer;
+      color: var(--text-color);
       display: none; /* إخفاء السهم في البداية */
       transition: opacity 0.3s ease;
     }
 
     #scrollDownArrow:hover {
-      background-color: #0056b3;
+      background-color: var(--secondary-color);
     }
 
     /* إعداد الأيقونة */
@@ -188,7 +189,7 @@ self.addEventListener('fetch', (event) => {
       </div>
     </header>
       <div id="scrollDownArrow">
-    <span class="material-icons">keyboard_arrow_down</span>
+    <span class="material-icons">arrow_downward</span>
       </div>
     <div class="chat-list"></div>
     <!-- Typing Area -->
